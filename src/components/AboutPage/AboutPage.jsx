@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -6,13 +6,14 @@ import React from 'react';
 // or even care what the redux state is'
 
 function AboutPage() {
-  return (
-    <div className="container">
-      <div>
-        <p>This about page is for anyone to read!</p>
-      </div>
-    </div>
-  );
+    return (
+        <div className="container">
+            <div>
+                <p>Thank you to:</p>
+                <p>Aquarium Builder was made with...</p>
+            </div>
+        </div>
+    );
 }
 
 export default AboutPage;
