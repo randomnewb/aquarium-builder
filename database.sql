@@ -61,5 +61,5 @@ CREATE TABLE "aquarium_schedule" (
 	"id" SERIAL PRIMARY KEY,
 	"aquarium_id" INT REFERENCES "aquarium",
 	"schedule_id" INT REFERENCES "schedule",
-	"completed_at" DATE
+	"completed_at" TIME
 );

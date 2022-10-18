@@ -29,7 +29,7 @@ function Nav() {
                         <Link
                             className="navLink"
                             to="/user">
-                            Home
+                            Dashboard
                         </Link>
 
                         <Link
