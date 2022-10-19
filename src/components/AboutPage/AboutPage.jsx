@@ -11,6 +11,7 @@ function AboutPage() {
             <div>
                 <p>Thank you to:</p>
                 <p>Aquarium Builder was made with...</p>
+                {/* Built with React, Redux, Sagas, etc... */}
             </div>
         </div>
     );
