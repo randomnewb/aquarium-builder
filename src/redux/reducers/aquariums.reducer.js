@@ -1,4 +1,6 @@
-const aquariumReducer = (state = [], action) => {
+import { combineReducers } from "redux";
+
+const allAquariums = (state = [], action) => {
     switch (action.type) {
         case "SET_AQUARIUMS":
             return action.payload;
@@ -9,4 +11,16 @@ const aquariumReducer = (state = [], action) => {
     }
 };
 
-export default aquariumReducer;
+const specificAquarium = (state = {}, action) => {
+    switch (action.type) {
+        case "SET_AQUARIUM_DETAIL":
+            return action.payload;
+        default:
+            return state;
+    }
+};
+
+export default combineReducers({
+    allAquariums,
+    specificAquarium,
+});

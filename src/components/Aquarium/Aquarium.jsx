@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 const Aquarium = () => {
-    const aquarium = useSelector((store) => store.aquariums);
+    const aquarium = useSelector((store) => store.aquariums.specificAquarium);
     // id matches Route and exact path from App.jsx "/aquarium/:id
     const { id } = useParams();
     const dispatch = useDispatch();

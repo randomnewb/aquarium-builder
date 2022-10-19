@@ -35,7 +35,7 @@ function* fetchAquariumDetail(action) {
     try {
         const aquarium = yield axios.get(`api/aquarium/${action.payload}`);
         yield put({
-            type: "SET_AQUARIUM",
+            type: "SET_AQUARIUM_DETAIL",
             payload: aquarium.data,
         });
     } catch (error) {

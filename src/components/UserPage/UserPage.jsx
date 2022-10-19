@@ -14,7 +14,7 @@ function UserPage() {
     const dispatch = useDispatch();
 
     // Pull all the user's aquariums from the store
-    const aquariums = useSelector((store) => store.aquariums);
+    const aquariums = useSelector((store) => store.aquariums.allAquariums);
 
     // FETCH our aquariums on load
     useEffect(() => {
