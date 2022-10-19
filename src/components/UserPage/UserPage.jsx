@@ -39,6 +39,7 @@ function UserPage() {
                         <h6>
                             <img src={aquarium.image_url}></img>
                         </h6>
+                        <button> View Aquarium Detail</button>
                     </div>
                 );
             })}
