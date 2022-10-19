@@ -18,6 +18,19 @@ router.get("/", (req, res) => {
         });
 });
 
+// GET Route by id
+router.get("/:id", (req, res) => {
+    const sql = `SELECT * FROM "aquarium" WHERE "id"=$1`;
+    pool.query(sql, [req.params.id])
+        .then((result) => {
+            res.send(result.rows[0]);
+        })
+        .catch((e) => {
+            console.log("Error getting specific aquarium", e);
+            res.sendStatus(500);
+        });
+});
+
 // POST Route
 router.post("/", (req, res) => {
     // POST route code here

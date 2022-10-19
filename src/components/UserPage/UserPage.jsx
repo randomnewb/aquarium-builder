@@ -2,10 +2,14 @@
 import React, { useEffect } from "react";
 import LogOutButton from "../LogOutButton/LogOutButton";
 
+// Import useHistory so we can change view on click
+import { useHistory } from "react-router-dom";
+
 // Import useDispatch so that we can click on specific aquariums to view their detail
 import { useSelector, useDispatch } from "react-redux";
 
 function UserPage() {
+    const history = useHistory();
     // Use dispatch so that we can FETCH aquariums
     const dispatch = useDispatch();
 
@@ -17,6 +21,10 @@ function UserPage() {
         dispatch({ type: "FETCH_AQUARIUMS" });
     }, []);
 
+    const viewAquariumDetail = (aquariumToDisplay) => {
+        history.push(`/aquarium/${aquariumToDisplay.id}`);
+    };
+
     // this component doesn't do much to start, just renders some user reducer info to the DOM
     const user = useSelector((store) => store.user);
     return (
@@ -26,8 +34,7 @@ function UserPage() {
             <LogOutButton className="btn" />
             {/* Aquariums will be displayed here along with create aquarium button */}
             <p> Aquariums go here </p>
-            {JSON.stringify(aquariums)};
-            {/* Uncomment block below once there are aquariums to FETCH */}
+            {/* {JSON.stringify(aquariums)}; */}
             {aquariums.map((aquarium) => {
                 return (
                     <div key={aquarium.id}>
@@ -39,7 +46,9 @@ function UserPage() {
                         <h6>
                             <img src={aquarium.image_url}></img>
                         </h6>
-                        <button> View Aquarium Detail</button>
+                        <button onClick={(e) => viewAquariumDetail(aquarium)}>
+                            View Aquarium Detail
+                        </button>
                     </div>
                 );
             })}
