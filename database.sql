@@ -20,6 +20,9 @@ CREATE TABLE "aquarium" (
 	"image_url" VARCHAR (3000)
 );
 
+INSERT INTO "aquarium" ("user_id", "name", "length", "width", "height", "note", "image_url")
+VALUES (1, 'Shrimp Tank', 8, 8, 8, 'A nano tank for nano livestock.', 'https://unsplash.com/photos/kIrSG5VDdl8/download?ixid=MnwxMjA3fDB8MXxjb2xsZWN0aW9ufDd8Njc1OTY4NjB8fHx8fDJ8fDE2NjYxMzkwNDc&force=true&w=640');
+
 CREATE TABLE "product" (
 	"id" SERIAL PRIMARY KEY,
 	"aquarium_id" INT REFERENCES "aquarium",
@@ -39,6 +42,7 @@ INSERT INTO "product_type" ("type")
 VALUES ('livestock'), ('plants'), ('rock'), ('driftwood'), ('substrate')
 ;
 
+
 CREATE TABLE "schedule" (
 	"id" SERIAL PRIMARY KEY,
 	"schedule_type_id" INT REFERENCES "schedule_type",
@@ -57,9 +61,10 @@ INSERT INTO "schedule_type" ("type")
 VALUES ('feeding'), ('water_change'), ('lighting'), ('carbon_dioxide'), ('fertilizer'), ('medication')
 ;
 
+
 CREATE TABLE "aquarium_schedule" (
 	"id" SERIAL PRIMARY KEY,
 	"aquarium_id" INT REFERENCES "aquarium",
 	"schedule_id" INT REFERENCES "schedule",
-	"completed_at" TIME
+	"completed_at" TIMESTAMP NOT NULL DEFAULT NOW()
 );

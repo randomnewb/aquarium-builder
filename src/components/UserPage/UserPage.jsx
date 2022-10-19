@@ -24,19 +24,24 @@ function UserPage() {
             <h2>Welcome, {user.username}!</h2>
             <p>Your ID is: {user.id}</p>
             <LogOutButton className="btn" />
-
             {/* Aquariums will be displayed here along with create aquarium button */}
             <p> Aquariums go here </p>
-
+            {JSON.stringify(aquariums)};
             {/* Uncomment block below once there are aquariums to FETCH */}
-            {/* {aquariums.map((aquarium) => {
+            {aquariums.map((aquarium) => {
                 return (
                     <div key={aquarium.id}>
                         <h6> {aquarium.name}</h6>
+                        <h6> Length: {aquarium.length}</h6>
+                        <h6> Width: {aquarium.width}</h6>
+                        <h6> Height: {aquarium.height}</h6>
+                        <h6> Note: {aquarium.note}</h6>
+                        <h6>
+                            <img src={aquarium.image_url}></img>
+                        </h6>
                     </div>
                 );
-            })} */}
-
+            })}
             <p> Create aquarium button goes here</p>
         </div>
     );
