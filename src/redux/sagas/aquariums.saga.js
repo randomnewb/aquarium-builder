@@ -8,7 +8,7 @@ import axios from "axios";
 function* aquariumSaga() {
     yield takeLatest("FETCH_AQUARIUMS", fetchAllAquariums);
     yield takeLatest("FETCH_AQUARIUM", fetchAquariumDetail);
-    // yield takeLatest("POST_AQUARIUM", postAquarium);
+    yield takeLatest("POST_AQUARIUM", postAquarium);
     // yield takeLatest("DELETE_AQUARIUM", deleteAquarium);
     // yield takeLatest("PUT_AQUARIUM", updateAquarium);
 }
@@ -44,16 +44,16 @@ function* fetchAquariumDetail(action) {
     }
 }
 
-// function* postAquarium(action) {
-//     try {
-//         yield axios.post("/api/aquarium", action.payload);
-//         yield put({
-//             type: "FETCH_AQUARIUMS",
-//         });
-//     } catch (error) {
-//         console.log("Error posting aquarium", error);
-//         alert("Something went wrong posting aquarium");
-//     }
-// }
+function* postAquarium(action) {
+    try {
+        yield axios.post("/api/aquarium", action.payload);
+        yield put({
+            type: "FETCH_AQUARIUMS",
+        });
+    } catch (error) {
+        console.log("Error posting aquarium", error);
+        alert("Something went wrong posting aquarium");
+    }
+}
 
 export default aquariumSaga;

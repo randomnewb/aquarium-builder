@@ -33,7 +33,19 @@ router.get("/:id", (req, res) => {
 
 // POST Route
 router.post("/", (req, res) => {
-    // POST route code here
+    const sql = `
+    INSERT INTO "aquarium" ("name")
+    VALUES ($1)
+    `;
+
+    pool.query(sql, [req.body.name])
+        .then((result) => {
+            res.sendStatus(201);
+        })
+        .catch((e) => {
+            console.log(e);
+            res.sendStatus(500);
+        });
 });
 
 // DELETE Route

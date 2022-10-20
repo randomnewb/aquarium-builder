@@ -22,6 +22,7 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 
 // Remember to import it here so it can be accessed
 import Aquarium from "../Aquarium/Aquarium";
+import CreateAquarium from "../CreateAquarium/CreateAquarium";
 
 import "./App.css";
 
@@ -115,6 +116,11 @@ function App() {
                         exact
                         path="/aquarium/:id">
                         <Aquarium />
+                    </Route>
+                    <Route
+                        exact
+                        path="/setup">
+                        <CreateAquarium />
                     </Route>
                     {/* If none of the other routes matched, we will show a 404. */}
                     <Route>

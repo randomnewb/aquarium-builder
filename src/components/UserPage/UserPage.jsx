@@ -52,7 +52,9 @@ function UserPage() {
                     </div>
                 );
             })}
-            <p> Create aquarium button goes here</p>
+            <button onClick={() => history.push("/setup")}>
+                Create a New Aquarium
+            </button>
         </div>
     );
 }

@@ -31,6 +31,11 @@ function Nav() {
                             to="/user">
                             Dashboard
                         </Link>
+                        <Link
+                            className="navLink"
+                            to="/setup">
+                            Create
+                        </Link>
 
                         <Link
                             className="navLink"
