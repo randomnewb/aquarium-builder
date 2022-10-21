@@ -9,7 +9,7 @@ function* aquariumSaga() {
     yield takeLatest("FETCH_AQUARIUMS", fetchAllAquariums);
     yield takeLatest("FETCH_AQUARIUM", fetchAquariumDetail);
     yield takeLatest("POST_AQUARIUM", postAquarium);
-    // yield takeLatest("DELETE_AQUARIUM", deleteAquarium);
+    yield takeLatest("DELETE_AQUARIUM", deleteAquarium);
     // yield takeLatest("PUT_AQUARIUM", updateAquarium);
 }
 
@@ -53,6 +53,19 @@ function* postAquarium(action) {
     } catch (error) {
         console.log("Error posting aquarium", error);
         alert("Something went wrong posting aquarium");
+    }
+}
+
+function* deleteAquarium(action) {
+    console.log("Action is", action);
+    try {
+        yield axios.delete(`/api/aquarium/${action.payload.id}`);
+        yield put({
+            type: "FETCH_AQUARIUMS",
+        });
+    } catch (error) {
+        console.log("Error deleting aquarium", error);
+        alert("Something went wrong deleting aquarium");
     }
 }
 

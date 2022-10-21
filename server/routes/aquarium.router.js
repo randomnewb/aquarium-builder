@@ -50,7 +50,14 @@ router.post("/", (req, res) => {
 
 // DELETE Route
 router.delete("/:id", (req, res) => {
-    // DELETE route code here
+    const sql = `DELETE FROM "aquarium" WHERE "id" = $1`;
+    pool.query(sql, [req.params.id])
+        .then(() => {
+            res.sendStatus(201);
+        })
+        .catch((e) => {
+            res.sendStatus(500);
+        });
 });
 
 // PUT Route
