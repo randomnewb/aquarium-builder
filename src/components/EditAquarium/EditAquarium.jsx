@@ -1,14 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import axios from "axios";
 
 const EditAquarium = () => {
-    const aquarium = useSelector((store) => store.aquariums.specificAquarium);
-    const [id, setId] = useState(aquarium.id);
-    const [name, setName] = useState(aquarium.name);
-
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const aquarium = useSelector((store) => store.aquariums.specificAquarium);
+    const [name, setName] = useState(aquarium.name);
+    const { id } = useParams();
+
+    useEffect(() => {
+        // axios
+        //     .get(`/api/aquarium/${id}`)
+        //     .then((response) => {
+        //         setName(response.data.name);
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //         alert("Something went wrong");
+        //     });
+
+        dispatch({
+            type: "FETCH_AQUARIUM",
+            payload: id,
+        });
+
+        // Fetch specific aquarium whenever the id changes
+    }, [id, dispatch]);
+
+    useEffect(() => {
+        setName(aquarium.name);
+    }, [aquarium]);
 
     const editAquarium = (e) => {
         e.preventDefault();

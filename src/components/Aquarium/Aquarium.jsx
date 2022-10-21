@@ -6,10 +6,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // Need to import useParams so that we can obtain and use the id of the aquarium
-import { useParams } from "react-router-dom";
-
 // Import useHistory so we can go back /home when we're done
-import { useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 const Aquarium = () => {
     const history = useHistory();
