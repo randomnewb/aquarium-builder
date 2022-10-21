@@ -38,6 +38,11 @@ const Aquarium = () => {
         }
     };
 
+    const editAquarium = (aquarium) => {
+        console.log("In edit aquarium");
+        history.push(`/edit/${aquarium.id}`);
+    };
+
     return (
         <div>
             <h6> {aquarium.name}</h6>
@@ -48,6 +53,9 @@ const Aquarium = () => {
             <h6>
                 <img src={aquarium.image_url}></img>
             </h6>
+            <button onClick={() => editAquarium(aquarium)}>
+                Edit Aquarium
+            </button>
             <button onClick={() => deleteAquarium(aquarium)}>
                 Delete Aquarium
             </button>

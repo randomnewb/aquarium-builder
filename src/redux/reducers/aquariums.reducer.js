@@ -20,7 +20,17 @@ const specificAquarium = (state = {}, action) => {
     }
 };
 
+const editAquarium = (state = {}, action) => {
+    switch (action.type) {
+        case "UPDATE_AQUARIUM":
+            return action.payload;
+        default:
+            return state;
+    }
+};
+
 export default combineReducers({
     allAquariums,
     specificAquarium,
+    editAquarium,
 });

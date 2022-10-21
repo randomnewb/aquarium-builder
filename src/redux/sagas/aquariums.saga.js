@@ -10,7 +10,7 @@ function* aquariumSaga() {
     yield takeLatest("FETCH_AQUARIUM", fetchAquariumDetail);
     yield takeLatest("POST_AQUARIUM", postAquarium);
     yield takeLatest("DELETE_AQUARIUM", deleteAquarium);
-    // yield takeLatest("PUT_AQUARIUM", updateAquarium);
+    yield takeLatest("PUT_AQUARIUM", updateAquarium);
 }
 
 // Comment this out for now until dummy data can be entered and tested
@@ -20,7 +20,7 @@ function* fetchAllAquariums() {
     // Get all aquariums from database
     try {
         const aquariums = yield axios.get("/api/aquarium");
-        console.log("Getting all aquariums", aquariums.data);
+        // console.log("Getting all aquariums", aquariums.data);
         yield put({
             type: "SET_AQUARIUMS",
             payload: aquariums.data,
@@ -57,7 +57,6 @@ function* postAquarium(action) {
 }
 
 function* deleteAquarium(action) {
-    console.log("Action is", action);
     try {
         yield axios.delete(`/api/aquarium/${action.payload.id}`);
         yield put({
@@ -66,6 +65,19 @@ function* deleteAquarium(action) {
     } catch (error) {
         console.log("Error deleting aquarium", error);
         alert("Something went wrong deleting aquarium");
+    }
+}
+
+function* updateAquarium(action) {
+    console.log("Action is", action);
+    try {
+        yield axios.put(`/api/aquarium/${action.payload.id}`, action.payload);
+        yield put({
+            type: "FETCH_AQUARIUMS",
+        });
+    } catch (error) {
+        console.log("Error updating aquarium", error);
+        alert("Something went wrong updating aquarium");
     }
 }
 
