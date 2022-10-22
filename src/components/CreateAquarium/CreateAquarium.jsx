@@ -4,9 +4,9 @@ import { useHistory } from "react-router-dom";
 
 const CreateAquarium = () => {
     const [name, setName] = useState("");
-    const [length, setLength] = useState(undefined);
-    const [width, setWidth] = useState(undefined);
-    const [height, setHeight] = useState(undefined);
+    const [length, setLength] = useState("");
+    const [width, setWidth] = useState("");
+    const [height, setHeight] = useState("");
     const [note, setNote] = useState("");
     const [image_url, setImage_url] = useState("");
 
