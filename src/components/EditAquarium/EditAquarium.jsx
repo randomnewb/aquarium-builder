@@ -9,6 +9,11 @@ const EditAquarium = () => {
 
     const aquarium = useSelector((store) => store.aquariums.specificAquarium);
     const [name, setName] = useState(aquarium.name);
+    const [length, setLength] = useState(aquarium.length);
+    const [width, setWidth] = useState(aquarium.width);
+    const [height, setHeight] = useState(aquarium.height);
+    const [note, setNote] = useState(aquarium.note);
+    const [image_url, setImage_url] = useState(aquarium.image_url);
     const { id } = useParams();
 
     useEffect(() => {
@@ -32,6 +37,11 @@ const EditAquarium = () => {
 
     useEffect(() => {
         setName(aquarium.name);
+        setLength(aquarium.length);
+        setWidth(aquarium.width);
+        setHeight(aquarium.height);
+        setNote(aquarium.note);
+        setImage_url(aquarium.image_url);
     }, [aquarium]);
 
     const editAquarium = (e) => {
@@ -43,10 +53,10 @@ const EditAquarium = () => {
                 id: id,
                 name: name,
                 length: length,
-                width: 0,
-                height: 0,
-                note: "",
-                image_url: "",
+                width: width,
+                height: height,
+                note: note,
+                image_url: image_url,
             },
         });
 
@@ -80,6 +90,52 @@ const EditAquarium = () => {
                     name="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                />
+                <br />
+                <input
+                    type="number"
+                    placeholder="Length of aquarium"
+                    name="length"
+                    value={length}
+                    onChange={(e) => setLength(e.target.value)}
+                />
+
+                <br />
+                <input
+                    type="number"
+                    placeholder="Width of aquarium"
+                    name="width"
+                    value={width}
+                    onChange={(e) => setWidth(e.target.value)}
+                />
+                <br />
+                <input
+                    type="number"
+                    placeholder="Height of aquarium"
+                    name="height"
+                    value={height}
+                    onChange={(e) => setHeight(e.target.value)}
+                />
+                <br />
+                <input
+                    type="text"
+                    placeholder="Note"
+                    name="note"
+                    value={note}
+                    onChange={(e) => setNote(e.target.value)}
+                />
+                <br />
+                <input
+                    type="text"
+                    placeholder="Input complete image_url"
+                    name="image_url"
+                    value={image_url}
+                    onChange={(e) => setImage_url(e.target.value)}
+                />
+                <br />
+                <input
+                    type="submit"
+                    value="Finish Editing Aquarium"
                 />
             </form>
 
