@@ -113,21 +113,21 @@ function App() {
                         )}
                     </Route>
                     {/* Add Aquarium Route with a specific id, the specific one the user wants to view */}
-                    <Route
+                    <ProtectedRoute
                         exact
                         path="/aquarium/:id">
                         <Aquarium />
-                    </Route>
-                    <Route
+                    </ProtectedRoute>
+                    <ProtectedRoute
                         exact
                         path="/setup">
                         <CreateAquarium />
-                    </Route>
-                    <Route
+                    </ProtectedRoute>
+                    <ProtectedRoute
                         exact
                         path="/edit/:id">
                         <EditAquarium />
-                    </Route>
+                    </ProtectedRoute>
                     {/* If none of the other routes matched, we will show a 404. */}
                     <Route>
                         <h1>404</h1>

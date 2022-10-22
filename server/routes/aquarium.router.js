@@ -34,11 +34,19 @@ router.get("/:id", (req, res) => {
 // POST Route
 router.post("/", (req, res) => {
     const sql = `
-    INSERT INTO "aquarium" ("name")
-    VALUES ($1)
+    INSERT INTO "aquarium" ("user_id", "name", "length", "width", "height", "note", "image_url")
+    VALUES ($1, $2, $3, $4, $5, $6, $7)
     `;
 
-    pool.query(sql, [req.body.name])
+    pool.query(sql, [
+        req.user.id,
+        req.body.name,
+        req.body.length,
+        req.body.width,
+        req.body.height,
+        req.body.note,
+        req.body.image_url,
+    ])
         .then((result) => {
             res.sendStatus(201);
         })
@@ -64,14 +72,30 @@ router.delete("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
     console.log("req.body is", req.body);
     console.log("req.params.id is", req.params.id);
+    console.log("req.user.id is", req.user.id);
 
     const sql = `
     UPDATE "aquarium"
-    SET "name" = $1
-    WHERE "id" = $2
+    SET "name" = $1,
+    "length" = $2,
+    "width" = $3,
+    "height" = $4,
+    "note" = $5,
+    "image_url" = $6,
+    "user_id" = $7
+    WHERE "id" = $8
     `;
 
-    pool.query(sql, [req.body.name, req.params.id])
+    pool.query(sql, [
+        req.body.name,
+        req.body.length,
+        req.body.width,
+        req.body.height,
+        req.body.note,
+        req.body.image_url,
+        req.user.id,
+        req.params.id,
+    ])
         .then((result) => {
             res.sendStatus(201);
         })

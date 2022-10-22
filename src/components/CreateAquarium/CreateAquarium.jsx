@@ -4,6 +4,11 @@ import { useHistory } from "react-router-dom";
 
 const CreateAquarium = () => {
     const [name, setName] = useState("");
+    const [length, setLength] = useState(undefined);
+    const [width, setWidth] = useState(undefined);
+    const [height, setHeight] = useState(undefined);
+    const [note, setNote] = useState("");
+    const [image_url, setImage_url] = useState("");
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -13,7 +18,14 @@ const CreateAquarium = () => {
         console.log("Adding a new aquarium");
         dispatch({
             type: "POST_AQUARIUM",
-            payload: { name: name },
+            payload: {
+                name: name,
+                length: length,
+                width: width,
+                height: height,
+                note: note,
+                image_url: image_url,
+            },
         });
 
         if (
@@ -36,18 +48,55 @@ const CreateAquarium = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
+                <br />
+                <input
+                    type="number"
+                    placeholder="Length of aquarium"
+                    name="length"
+                    value={length}
+                    onChange={(e) => setLength(e.target.value)}
+                />
+
+                <br />
+                <input
+                    type="number"
+                    placeholder="Width of aquarium"
+                    name="width"
+                    value={width}
+                    onChange={(e) => setWidth(e.target.value)}
+                />
+                <br />
+                <input
+                    type="number"
+                    placeholder="Height of aquarium"
+                    name="height"
+                    value={height}
+                    onChange={(e) => setHeight(e.target.value)}
+                />
+                <br />
+                <input
+                    type="text"
+                    placeholder="Note"
+                    name="note"
+                    value={note}
+                    onChange={(e) => setNote(e.target.value)}
+                />
+                <br />
+                <input
+                    type="text"
+                    placeholder="Input complete image_url"
+                    name="image_url"
+                    value={image_url}
+                    onChange={(e) => setImage_url(e.target.value)}
+                />
+                <br />
+                <input
+                    type="submit"
+                    value="Finish Creating Aquarium"
+                />
             </form>
         </>
     );
 };
-
-{
-    /* "name" VARCHAR (255),
-	"length" INT,
-	"width" INT,
-	"height" INT,
-	"note" VARCHAR (1000),
-	"image_url" VARCHAR (3000) */
-}
 
 export default CreateAquarium;

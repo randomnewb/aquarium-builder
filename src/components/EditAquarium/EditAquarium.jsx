@@ -39,7 +39,15 @@ const EditAquarium = () => {
         console.log("Editing aquarium");
         dispatch({
             type: "PUT_AQUARIUM",
-            payload: { id: id, name: name },
+            payload: {
+                id: id,
+                name: name,
+                length: length,
+                width: 0,
+                height: 0,
+                note: "",
+                image_url: "",
+            },
         });
 
         if (
@@ -47,6 +55,17 @@ const EditAquarium = () => {
                 "Are you sure you want to complete the aquarium editing process?"
             )
         ) {
+            history.push("/home");
+        }
+    };
+
+    const deleteAquarium = (aquarium) => {
+        console.log("In delete aquarium");
+        if (confirm("Are you sure you want to delete this aquarium?")) {
+            dispatch({
+                type: "DELETE_AQUARIUM",
+                payload: aquarium,
+            });
             history.push("/home");
         }
     };
@@ -63,6 +82,10 @@ const EditAquarium = () => {
                     onChange={(e) => setName(e.target.value)}
                 />
             </form>
+
+            <button onClick={() => deleteAquarium(aquarium)}>
+                Delete Aquarium
+            </button>
         </>
     );
 };
