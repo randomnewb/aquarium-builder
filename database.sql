@@ -39,7 +39,7 @@ CREATE TABLE "product_type" (
 --Define the product types that users can add to and populate their aquariums
 
 INSERT INTO "product_type" ("type")
-VALUES ('livestock'), ('plants'), ('rock'), ('driftwood'), ('substrate')
+VALUES ('livestock'), ('plant'), ('rock'), ('driftwood'), ('substrate')
 ;
 
 
