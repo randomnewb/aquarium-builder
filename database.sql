@@ -83,3 +83,9 @@ VALUES ('feeding'), ('water_change'), ('lighting'), ('carbon_dioxide'), ('fertil
 SELECT * FROM "aquarium"
 JOIN "product" ON "aquarium"."id" = "product"."aquarium_id"
 WHERE "user_id" = 1;
+
+-- Example join query where user matches 1 and aquarium_id matches 1
+-- By default, should return two items
+SELECT * FROM "aquarium"
+        JOIN "product" ON "aquarium"."id" = "product"."aquarium_id"
+        WHERE "aquarium_id" = 1 and "user_id" = 1;

@@ -13,6 +13,9 @@ const userRouter = require("./routes/user.router");
 // Require our aquarium router
 const aquariumRouter = require("./routes/aquarium.router");
 
+// Require our product router
+const productRouter = require("./routes/product.router");
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,6 +32,9 @@ app.use("/api/user", userRouter);
 
 // Aquarium route
 app.use("/api/aquarium", aquariumRouter);
+
+// Product route
+app.use("/api/product", productRouter);
 
 // Serve static files
 app.use(express.static("build"));

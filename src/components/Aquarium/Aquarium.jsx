@@ -13,6 +13,7 @@ const Aquarium = () => {
     const history = useHistory();
 
     const aquarium = useSelector((store) => store.aquariums.specificAquarium);
+    const products = useSelector((store) => store.products);
     // id matches Route and exact path from App.jsx "/aquarium/:id
     const { id } = useParams();
     const dispatch = useDispatch();
@@ -20,6 +21,10 @@ const Aquarium = () => {
     useEffect(() => {
         dispatch({
             type: "FETCH_AQUARIUM",
+            payload: id,
+        });
+        dispatch({
+            type: "FETCH_PRODUCTS",
             payload: id,
         });
         // Fetch specific aquarium whenever the id changes
@@ -43,6 +48,7 @@ const Aquarium = () => {
 
     return (
         <div>
+            {JSON.stringify(products)}
             <h6> {aquarium.name}</h6>
             <h6> Length: {aquarium.length}</h6>
             <h6> Width: {aquarium.width}</h6>

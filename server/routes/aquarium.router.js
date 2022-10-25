@@ -9,7 +9,6 @@ const router = express.Router();
 router.get("/", (req, res) => {
     if (req.isAuthenticated()) {
         const sql = `SELECT * FROM "aquarium"
-        JOIN "product" ON "aquarium"."id" = "product"."aquarium_id"
         WHERE "user_id" = $1;
         `;
         pool.query(sql, [req.user.id])
