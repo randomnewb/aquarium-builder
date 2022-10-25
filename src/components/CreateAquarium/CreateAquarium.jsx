@@ -4,15 +4,15 @@ import { useHistory } from "react-router-dom";
 
 const CreateAquarium = () => {
     const [name, setName] = useState("");
-    const [length, setLength] = useState("");
-    const [width, setWidth] = useState("");
-    const [height, setHeight] = useState("");
+    const [length, setLength] = useState(0);
+    const [width, setWidth] = useState(0);
+    const [height, setHeight] = useState(0);
     const [note, setNote] = useState("");
     const [image_url, setImage_url] = useState("");
-    const [productType, setProductType] = useState("product_type");
+    const [productType, setProductType] = useState("livestock");
     const [typeDescription, setTypeDescription] = useState("");
     const [cost, setCost] = useState(0);
-    const [id, setId] = useState(1);
+    const [id, setId] = useState(0);
     const [products, setProducts] = useState([]);
 
     const dispatch = useDispatch();
@@ -30,6 +30,7 @@ const CreateAquarium = () => {
                 height: height,
                 note: note,
                 image_url: image_url,
+                product: products,
             },
         });
 
@@ -69,7 +70,7 @@ const CreateAquarium = () => {
             ...products,
             { id, productType, typeDescription, cost },
         ]);
-        setProductType("");
+        setProductType("livestock");
         setTypeDescription("");
         setCost(0);
     };
@@ -142,6 +143,7 @@ const CreateAquarium = () => {
                 type="radio"
                 name={productType}
                 value="livestock"
+                checked={productType === "livestock"}
                 onChange={(e) => setProductType(e.target.value)}
             />
             <label htmlFor="livestock">Livestock</label>
@@ -150,6 +152,7 @@ const CreateAquarium = () => {
                 type="radio"
                 name={productType}
                 value="plant"
+                checked={productType === "plant"}
                 onChange={(e) => setProductType(e.target.value)}
             />
             <label htmlFor="plant">Plant</label>
@@ -158,6 +161,7 @@ const CreateAquarium = () => {
                 type="radio"
                 name={productType}
                 value="rock"
+                checked={productType === "rock"}
                 onChange={(e) => setProductType(e.target.value)}
             />
             <label htmlFor="rock">Rock</label>
@@ -166,6 +170,7 @@ const CreateAquarium = () => {
                 type="radio"
                 name={productType}
                 value="driftwood"
+                checked={productType === "driftwood"}
                 onChange={(e) => setProductType(e.target.value)}
             />
             <label htmlFor="driftwood">Driftwood</label>
@@ -174,6 +179,7 @@ const CreateAquarium = () => {
                 type="radio"
                 name={productType}
                 value="substrate"
+                checked={productType === "substrate"}
                 onChange={(e) => setProductType(e.target.value)}
             />
             <label htmlFor="substrate">Substrate</label>

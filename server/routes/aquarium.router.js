@@ -8,7 +8,10 @@ const router = express.Router();
 // Add in something to only get logged in user's aquariums
 router.get("/", (req, res) => {
     if (req.isAuthenticated()) {
-        const sql = `SELECT * FROM "aquarium" WHERE "user_id" = $1`;
+        const sql = `SELECT * FROM "aquarium"
+        JOIN "product" ON "aquarium"."id" = "product"."aquarium_id"
+        WHERE "user_id" = $1;
+        `;
         pool.query(sql, [req.user.id])
             .then((result) => {
                 res.send(result.rows);
@@ -42,9 +45,13 @@ router.get("/:id", (req, res) => {
 // POST Route
 router.post("/", (req, res) => {
     if (req.isAuthenticated()) {
+        // Create aquarium entry
+        console.log("req.body is", req.body);
+
         const sql = `
         INSERT INTO "aquarium" ("user_id", "name", "length", "width", "height", "note", "image_url")
         VALUES ($1, $2, $3, $4, $5, $6, $7)
+        RETURNING "id";
         `;
 
         pool.query(sql, [
@@ -57,6 +64,47 @@ router.post("/", (req, res) => {
             req.body.image_url,
         ])
             .then((result) => {
+                console.log("new aquarium id", result.rows[0].id, req.body); //ID IS HERE!
+                console.log(req.body.product);
+
+                const newAquariumId = result.rows[0].id;
+                // Add products into table
+                const sql2 = `
+            INSERT INTO "product" ("aquarium_id", "description", "cost", "product_type_id")
+            VALUES ($1, $2, $3, $4);
+            `;
+                // req.body.product is an array of all the selected genre_ids
+                // iterate through each one, sending our query above until
+                // we have an entry for each genre_id
+                for (let i = 0; req.body.product.length > i; i++) {
+                    //convert productTypes
+                    switch (req.body.product[i].productType) {
+                        case "livestock":
+                            req.body.product[i].productType = 1;
+                            break;
+                        case "plant":
+                            req.body.product[i].productType = 2;
+                            break;
+                        case "rock":
+                            req.body.product[i].productType = 3;
+                            break;
+                        case "driftwood":
+                            req.body.product[i].productType = 4;
+                            break;
+                        case "substrate":
+                            req.body.product[i].productType = 5;
+                            break;
+                    }
+                    // SECOND QUERY ADDS PRODUCT PROPERTIES
+                    pool.query(sql2, [
+                        newAquariumId,
+                        req.body.product[i].typeDescription,
+                        req.body.product[i].cost,
+                        req.body.product[i].productType,
+                    ]);
+                }
+            })
+            .then(() => {
                 res.sendStatus(201);
             })
             .catch((e) => {
