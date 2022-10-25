@@ -34,6 +34,28 @@ router.get("/:id", (req, res) => {
         `;
         pool.query(sql, [req.params.id, req.user.id])
             .then((result) => {
+                console.log(result.rows[0]);
+
+                for (let i = 0; result.rows.length > i; i++) {
+                    //convert productTypes
+                    switch (result.rows[i].product_type_id) {
+                        case 1:
+                            result.rows[i].product_type_id = "livestock";
+                            break;
+                        case 2:
+                            result.rows[i].product_type_id = "plant";
+                            break;
+                        case 3:
+                            result.rows[i].product_type_id = "rock";
+                            break;
+                        case 4:
+                            result.rows[i].product_type_id = "driftwood";
+                            break;
+                        case 5:
+                            result.rows[i].product_type_id = "substrate";
+                            break;
+                    }
+                }
                 res.send(result.rows);
             })
             .catch((e) => {

@@ -48,7 +48,7 @@ const Aquarium = () => {
 
     return (
         <div>
-            {JSON.stringify(products)}
+            {/* {JSON.stringify(products)} */}
             <h6> {aquarium.name}</h6>
             <h6> Length: {aquarium.length}</h6>
             <h6> Width: {aquarium.width}</h6>
@@ -57,6 +57,19 @@ const Aquarium = () => {
             <h6>
                 <img src={aquarium.image_url}></img>
             </h6>
+            <div>
+                <h4>Current Items in Aquarium</h4>
+                {products.map((item) => {
+                    return (
+                        <ul key={item.id}>
+                            <li>
+                                {item.product_type_id}: {item.description},
+                                Cost: ${item.cost}
+                            </li>
+                        </ul>
+                    );
+                })}
+            </div>
             <button onClick={() => editAquarium(aquarium)}>
                 Edit Aquarium
             </button>
