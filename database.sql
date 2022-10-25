@@ -1,13 +1,13 @@
-
--- USER is a reserved keyword with Postgres
--- You must use double quotes in every query that user is in:
--- ex. SELECT * FROM "user";
--- Otherwise you will have errors!
+--Create this table first
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
+
+--REGISTER A USER ACCOUNT BEFORE CREATING OR INSERTING ANYTHING ELSE BELOW
+--CREATE tables and INSERT sample data in top down order to avoid
+--any issues with references/foreign keys
 
 CREATE TABLE "aquarium" (
 	"id" SERIAL PRIMARY KEY,
@@ -28,12 +28,11 @@ CREATE TABLE "product_type" (
 
 CREATE TABLE "product" (
 	"id" SERIAL PRIMARY KEY,
-	"aquarium_id" INT REFERENCES "aquarium",
+	"aquarium_id" INT REFERENCES "aquarium" ON DELETE CASCADE,
 	"description" VARCHAR (255),
 	"cost" INT,
 	"product_type_id" INT REFERENCES "product_type"
 );
-
 
 
 CREATE TABLE "schedule_type" (
@@ -47,7 +46,6 @@ CREATE TABLE "schedule" (
 	"frequency" INT,
 	"aquarium_id" INT REFERENCES "aquarium"
 );
-
 
 CREATE TABLE "aquarium_schedule" (
 	"id" SERIAL PRIMARY KEY,
@@ -78,14 +76,3 @@ VALUES (1, 'Anubias nana petite', 15, 2), (1, 'Seiryu', 10, 3), (2, 'Sparkling G
 INSERT INTO "schedule_type" ("type")
 VALUES ('feeding'), ('water_change'), ('lighting'), ('carbon_dioxide'), ('fertilizer'), ('medication')
 ;
-
--- Example join query
-SELECT * FROM "aquarium"
-JOIN "product" ON "aquarium"."id" = "product"."aquarium_id"
-WHERE "user_id" = 1;
-
--- Example join query where user matches 1 and aquarium_id matches 1
--- By default, should return two items
-SELECT * FROM "aquarium"
-        JOIN "product" ON "aquarium"."id" = "product"."aquarium_id"
-        WHERE "aquarium_id" = 1 and "user_id" = 1;

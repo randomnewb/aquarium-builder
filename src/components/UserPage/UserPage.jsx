@@ -30,10 +30,10 @@ function UserPage() {
     return (
         <div className="container">
             <h2>Welcome, {user.username}!</h2>
-            <p>Your ID is: {user.id}</p>
-            <LogOutButton className="btn" />
+            {/* <p>Your ID is: {user.id}</p> */}
+            {/* <LogOutButton className="btn" /> */}
             {/* Aquariums will be displayed here along with create aquarium button */}
-            <p> Aquariums go here </p>
+            <p> Your Current Aquariums </p>
             {/* {JSON.stringify(aquariums)}; */}
             {aquariums.map((aquarium) => {
                 return (
