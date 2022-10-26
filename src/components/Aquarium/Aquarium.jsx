@@ -49,14 +49,15 @@ const Aquarium = () => {
     return (
         <div>
             {/* {JSON.stringify(products)} */}
-            <h6> {aquarium.name}</h6>
-            <h6> Length: {aquarium.length}</h6>
-            <h6> Width: {aquarium.width}</h6>
-            <h6> Height: {aquarium.height}</h6>
-            <h6> Note: {aquarium.note}</h6>
-            <h6>
-                <img src={aquarium.image_url}></img>
-            </h6>
+            <h3> {aquarium.name}</h3>
+            <h3> Length: {aquarium.length}</h3>
+            <h3> Width: {aquarium.width}</h3>
+            <h3> Height: {aquarium.height}</h3>
+            <h3> Note: {aquarium.note}</h3>
+            <img
+                src={aquarium.image_url}
+                style={{ width: 300 }}></img>
+            <br />
             <div>
                 <h4>Current Items in Aquarium</h4>
                 {products.map((item) => {
@@ -70,9 +71,11 @@ const Aquarium = () => {
                     );
                 })}
             </div>
+            <br />
             <button onClick={() => editAquarium(aquarium)}>
                 Edit Aquarium
             </button>
+            <br />
             <button onClick={() => deleteAquarium(aquarium)}>
                 Delete Aquarium
             </button>

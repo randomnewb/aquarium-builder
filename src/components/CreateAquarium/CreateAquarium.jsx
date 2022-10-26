@@ -135,10 +135,10 @@ const CreateAquarium = () => {
             />
             <br />
 
-            <h6>
+            <h3>
                 If you would like to add an item, please select a category
                 below.
-            </h6>
+            </h3>
             <input
                 type="radio"
                 name={productType}
@@ -184,11 +184,11 @@ const CreateAquarium = () => {
             />
             <label htmlFor="substrate">Substrate</label>
             <br />
-            <h6>
+            <h3>
                 Then, type in the name and cost (if any) of that item. Add it
                 with "add item". It will appear below. You can remove
                 temporarily added items with "remove".
-            </h6>
+            </h3>
             <input
                 type="text"
                 placeholder="Name of item"
@@ -206,10 +206,10 @@ const CreateAquarium = () => {
             />
             <br />
             <button onClick={addSingleItem}>Add item</button>
-            <h6>
+            <h3>
                 When you are completely done, please press "Finish Creating
                 Aquarium" to save the aquarium.
-            </h6>
+            </h3>
             <div>
                 <h4>Current Items in Aquarium</h4>
                 {products.map((item) => {
