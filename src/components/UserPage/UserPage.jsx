@@ -4,8 +4,13 @@ import LogOutButton from "../LogOutButton/LogOutButton";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
 import { Container } from "@mui/system";
+import SquareFootIcon from "@mui/icons-material/SquareFoot";
+import LabelIcon from "@mui/icons-material/Label";
+import CommentIcon from "@mui/icons-material/Comment";
 
 // Import useHistory so we can change view on click
 import { useHistory } from "react-router-dom";
@@ -38,17 +43,22 @@ function UserPage() {
                 className="container"
                 container
                 spacing={2}>
-                <Container>
-                    <Typography variant="h1">
+                <Container maxWidth={true}>
+                    <Typography
+                        variant="h3"
+                        textAlign="center">
                         Welcome, {user.username}!
                     </Typography>
-                    <Typography variant="h2">
-                        {" "}
-                        Your Current Aquariums{" "}
+                    <Typography
+                        variant="h4"
+                        textAlign="center">
+                        Your Current Aquariums
                     </Typography>
-                    <Button onClick={() => history.push("/setup")}>
-                        Create a New Aquarium
-                    </Button>
+                    <Typography textAlign="center">
+                        <Button onClick={() => history.push("/setup")}>
+                            Create a New Aquarium
+                        </Button>
+                    </Typography>
                 </Container>
                 {/* <p>Your ID is: {user.id}</p> */}
                 {/* <LogOutButton className="btn" /> */}
@@ -61,20 +71,47 @@ function UserPage() {
                             item
                             xs={12}
                             sm={6}
-                            md={3}>
+                            md={3}
+                            marginTop={2}
+                            paddingRight={2}>
                             <Card key={aquarium.id}>
-                                <Typography variant="h4">
-                                    {aquarium.name} Length: {aquarium.length}"
-                                    Width: {aquarium.width}" Height:{" "}
-                                    {aquarium.height}" Note: {aquarium.note}
-                                </Typography>
-                                <img src={aquarium.image_url}></img>
-                                <Button
-                                    onClick={(e) =>
-                                        viewAquariumDetail(aquarium)
-                                    }>
-                                    View Aquarium Detail
-                                </Button>
+                                <CardContent>
+                                    <Typography
+                                        variant="h5"
+                                        noWrap>
+                                        <LabelIcon /> {aquarium.name}
+                                    </Typography>
+                                    <Typography
+                                        variant="h5"
+                                        noWrap>
+                                        <SquareFootIcon />
+                                        {aquarium.length}"x
+                                        {aquarium.width}"x{aquarium.height}"
+                                    </Typography>
+                                    <Typography
+                                        variant="h5"
+                                        noWrap>
+                                        <CommentIcon />
+                                        {aquarium.note}
+                                    </Typography>
+                                    <Typography
+                                        variant="h5"
+                                        noWrap
+                                        textAlign="center">
+                                        <img
+                                            src={aquarium.image_url}
+                                            width={200}
+                                            maxHeight={100}></img>
+                                    </Typography>
+                                </CardContent>
+                                <CardActions>
+                                    <Button
+                                        onClick={(e) =>
+                                            viewAquariumDetail(aquarium)
+                                        }>
+                                        Click to View More Detail
+                                    </Button>
+                                </CardActions>
                             </Card>
                         </Grid>
                     );
