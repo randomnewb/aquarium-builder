@@ -160,7 +160,7 @@ function UserPage() {
                                         <img
                                             src={aquarium.image_url}
                                             width={200}
-                                            maxHeight={100}
+                                            maxheight="true"
                                             className="drop"></img>
                                     </Typography>
                                 </CardContent>

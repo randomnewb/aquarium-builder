@@ -102,7 +102,7 @@ const Aquarium = () => {
                     <img
                         src={aquarium.image_url}
                         width={400}
-                        maxHeight={300}
+                        maxheight="true"
                         className="drop"></img>
                 </Typography>
                 <br />

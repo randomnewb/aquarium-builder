@@ -5,6 +5,9 @@ import Button from "@mui/material/Button";
 import { Typography, TextField } from "@mui/material";
 import { Container } from "@mui/system";
 import "../../css/PlainTextField.css";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
 
 const CreateAquarium = () => {
     const [name, setName] = useState("");
@@ -99,7 +102,7 @@ const CreateAquarium = () => {
                 <TextField
                     autoFocus
                     variant="filled"
-                    fullWidth="true"
+                    fullWidth
                     className="textfield"
                     // sx={{
                     //     input: {
@@ -118,7 +121,7 @@ const CreateAquarium = () => {
                 <br />
                 <TextField
                     variant="filled"
-                    fullWidth="true"
+                    fullWidth
                     className="textfield"
                     label="Length of aquarium (inches)"
                     type="number"
@@ -130,7 +133,7 @@ const CreateAquarium = () => {
                 <br />
                 <TextField
                     variant="filled"
-                    fullWidth="true"
+                    fullWidth
                     className="textfield"
                     label="Width of aquarium (inches)"
                     type="number"
@@ -142,7 +145,7 @@ const CreateAquarium = () => {
                 <br />
                 <TextField
                     variant="filled"
-                    fullWidth="true"
+                    fullWidth
                     className="textfield"
                     label="Height of aquarium (inches)"
                     type="number"
@@ -154,7 +157,7 @@ const CreateAquarium = () => {
                 <br />
                 <TextField
                     variant="filled"
-                    fullWidth="true"
+                    fullWidth
                     className="textfield"
                     label="Note"
                     type="text"
@@ -165,7 +168,7 @@ const CreateAquarium = () => {
                 <br />
                 <TextField
                     variant="filled"
-                    fullWidth="true"
+                    fullWidth
                     className="textfield"
                     label="Input the complete image url"
                     type="text"
@@ -179,7 +182,94 @@ const CreateAquarium = () => {
                     If you would like to add an organism or item, please select
                     a category below.
                 </h3>
-                <input
+                <InputLabel>Type</InputLabel>
+                <Select
+                    sx={{
+                        backgroundColor: "#F2DDA6",
+                        color: "black",
+                    }}
+                    MenuProps={{
+                        PaperProps: {
+                            sx: {
+                                bgcolor: "#F2DDA6",
+                            },
+                        },
+                    }}
+                    value={productType}
+                    label="Type"
+                    onChange={(e) => setProductType(e.target.value)}>
+                    <MenuItem
+                        style={{
+                            backgroundColor: "#F2DDA6",
+                            color: "black",
+                        }}
+                        sx={{
+                            "&:hover": {
+                                bgcolor: "#EAB06E !important",
+                                color: "black",
+                            },
+                        }}
+                        value="livestock">
+                        livestock
+                    </MenuItem>
+                    <MenuItem
+                        style={{
+                            backgroundColor: "#F2DDA6",
+                            color: "black",
+                        }}
+                        sx={{
+                            "&:hover": {
+                                bgcolor: "#EAB06E !important",
+                                color: "black",
+                            },
+                        }}
+                        value="plant">
+                        plant
+                    </MenuItem>
+                    <MenuItem
+                        style={{
+                            backgroundColor: "#F2DDA6",
+                            color: "black",
+                        }}
+                        sx={{
+                            "&:hover": {
+                                bgcolor: "#EAB06E !important",
+                                color: "black",
+                            },
+                        }}
+                        value="rock">
+                        rock
+                    </MenuItem>
+                    <MenuItem
+                        style={{
+                            backgroundColor: "#F2DDA6",
+                            color: "black",
+                        }}
+                        sx={{
+                            "&:hover": {
+                                bgcolor: "#EAB06E !important",
+                                color: "black",
+                            },
+                        }}
+                        value="driftwood">
+                        driftwood
+                    </MenuItem>
+                    <MenuItem
+                        style={{
+                            backgroundColor: "#F2DDA6",
+                            color: "black",
+                        }}
+                        sx={{
+                            "&:hover": {
+                                bgcolor: "#EAB06E !important",
+                                color: "black",
+                            },
+                        }}
+                        value="substrate">
+                        substrate
+                    </MenuItem>
+                </Select>
+                {/* <input
                     type="radio"
                     name={productType}
                     value="livestock"
@@ -222,7 +312,7 @@ const CreateAquarium = () => {
                     checked={productType === "substrate"}
                     onChange={(e) => setProductType(e.target.value)}
                 />
-                <label htmlFor="substrate">Substrate</label>
+                <label htmlFor="substrate">Substrate</label> */}
                 <br />
                 <h3>
                     Then, type in the name and cost (if any). Next, choose
@@ -231,7 +321,7 @@ const CreateAquarium = () => {
                 </h3>
                 <TextField
                     variant="filled"
-                    fullWidth="true"
+                    fullWidth
                     className="textfield"
                     label="Name of organism/item"
                     type="text"
@@ -242,7 +332,7 @@ const CreateAquarium = () => {
                 <br />
                 <TextField
                     variant="filled"
-                    fullWidth="true"
+                    fullWidth
                     className="textfield"
                     label="Cost of item"
                     type="number"
