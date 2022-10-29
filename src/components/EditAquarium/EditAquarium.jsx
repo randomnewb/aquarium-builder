@@ -188,6 +188,14 @@ const EditAquarium = () => {
                             bgcolor: "#F2DDA6",
                             color: "black",
                         },
+                    }}
+                    style={{
+                        maxWidth: "400px",
+                        maxHeight: "100px",
+                        minWidth: "400px",
+                        minHeight: "10px",
+                        lineHeight: "50px",
+                        fontSize: "30px",
                     }}>
                     Cancel Editing
                 </Button>
@@ -204,6 +212,14 @@ const EditAquarium = () => {
                             bgcolor: "#F2DDA6",
                             color: "black",
                         },
+                    }}
+                    style={{
+                        maxWidth: "400px",
+                        maxHeight: "100px",
+                        minWidth: "400px",
+                        minHeight: "10px",
+                        lineHeight: "50px",
+                        fontSize: "30px",
                     }}>
                     Finish Editing Aquarium
                 </Button>
@@ -220,6 +236,14 @@ const EditAquarium = () => {
                             bgcolor: "#F2DDA6",
                             color: "black",
                         },
+                    }}
+                    style={{
+                        maxWidth: "400px",
+                        maxHeight: "100px",
+                        minWidth: "400px",
+                        minHeight: "10px",
+                        lineHeight: "50px",
+                        fontSize: "30px",
                     }}>
                     Delete Aquarium
                 </Button>

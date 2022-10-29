@@ -252,6 +252,7 @@ const CreateAquarium = () => {
                     onChange={(e) => setCost(e.target.value)}
                 />
                 <br />
+                <br />
                 <Button
                     onClick={addSingleItem}
                     sx={{
@@ -263,21 +264,31 @@ const CreateAquarium = () => {
                             bgcolor: "#F2DDA6",
                             color: "black",
                         },
+                    }}
+                    style={{
+                        maxWidth: "200px",
+                        maxHeight: "50px",
+                        minWidth: "200px",
+                        minHeight: "50px",
+                        lineHeight: "25px",
+                        fontSize: "20px",
                     }}>
-                    Add item
+                    Add Organism/Item
                 </Button>
                 <h3>
                     When you are completely done, please press "Finish Creating
                     Aquarium" to save the aquarium.
                 </h3>
+                <br />
+                <br />
                 <div>
-                    <h4>Current Organisms and Items in Aquarium</h4>
+                    <Typography sx={{ textDecoration: "underline" }}>
+                        Current Organisms and Items in Aquarium
+                    </Typography>
                     {products.map((item) => {
                         return (
                             <ul key={item.id}>
                                 <li>
-                                    {item.id}:{item.productType}:
-                                    {item.typeDescription}:${item.cost}
                                     <Button
                                         onClick={(e) =>
                                             deleteProductItem(e, item)
@@ -294,6 +305,9 @@ const CreateAquarium = () => {
                                         }}>
                                         Remove
                                     </Button>
+                                    {/* {item.id} */}
+                                    Type: {item.productType}, Label:
+                                    {item.typeDescription}, Cost: ${item.cost}
                                 </li>
                             </ul>
                         );
@@ -310,6 +324,14 @@ const CreateAquarium = () => {
                             bgcolor: "#F2DDA6",
                             color: "black",
                         },
+                    }}
+                    style={{
+                        maxWidth: "400px",
+                        maxHeight: "100px",
+                        minWidth: "400px",
+                        minHeight: "10px",
+                        lineHeight: "50px",
+                        fontSize: "30px",
                     }}>
                     Finish Creating Aquarium
                 </Button>
