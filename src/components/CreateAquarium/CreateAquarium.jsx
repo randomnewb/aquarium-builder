@@ -173,8 +173,8 @@ const CreateAquarium = () => {
                 <br />
 
                 <h3>
-                    If you would like to add an item, please select a category
-                    below.
+                    If you would like to add an organism or item, please select
+                    a category below.
                 </h3>
                 <input
                     type="radio"
@@ -222,15 +222,15 @@ const CreateAquarium = () => {
                 <label htmlFor="substrate">Substrate</label>
                 <br />
                 <h3>
-                    Then, type in the name and cost (if any) of that item. Add
-                    it with "add item". It will appear below. You can remove
-                    temporarily added items with "remove".
+                    Then, type in the name and cost (if any). Next, choose
+                    "add". It will appear below. You can remove temporarily
+                    added items with "remove" from the list.
                 </h3>
                 <TextField
                     variant="filled"
                     fullWidth="true"
                     className="textfield"
-                    label="Name of item"
+                    label="Name of organism/item"
                     type="text"
                     name="typeDescription"
                     value={typeDescription}
@@ -267,7 +267,7 @@ const CreateAquarium = () => {
                     Aquarium" to save the aquarium.
                 </h3>
                 <div>
-                    <h4>Current Items in Aquarium</h4>
+                    <h4>Current Organisms and Items in Aquarium</h4>
                     {products.map((item) => {
                         return (
                             <ul key={item.id}>
