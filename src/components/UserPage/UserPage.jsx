@@ -11,6 +11,8 @@ import { Container } from "@mui/system";
 import SquareFootIcon from "@mui/icons-material/SquareFoot";
 import LabelIcon from "@mui/icons-material/Label";
 import CommentIcon from "@mui/icons-material/Comment";
+// import "./PlainButton.css";
+// import drop from "./drop.css";
 
 // Import useHistory so we can change view on click
 import { useHistory } from "react-router-dom";
@@ -45,19 +47,22 @@ function UserPage() {
                 spacing={2}>
                 <Container maxWidth={true}>
                     <Typography
-                        variant="h3"
-                        textAlign="center">
+                        variant="h4"
+                        textAlign="center"
+                        sx={{ fontFamily: "Rubik" }}>
                         Welcome, {user.username}!
                     </Typography>
+                    <br />
                     <Typography
-                        variant="h4"
-                        textAlign="center">
+                        variant="h3"
+                        textAlign="center"
+                        sx={{ fontFamily: "Rubik" }}>
                         Your Current Aquariums
                     </Typography>
                     <Typography textAlign="center">
-                        <Button onClick={() => history.push("/setup")}>
+                        {/* <Button onClick={() => history.push("/setup")}>
                             Create a New Aquarium
-                        </Button>
+                        </Button> */}
                     </Typography>
                 </Container>
                 {/* <p>Your ID is: {user.id}</p> */}
@@ -74,42 +79,82 @@ function UserPage() {
                             md={3}
                             marginTop={2}
                             paddingRight={2}>
-                            <Card key={aquarium.id}>
+                            <Card
+                                key={aquarium.id}
+                                sx={{
+                                    backgroundColor: "#0F506E",
+                                    color: "white",
+                                }}>
                                 <CardContent>
                                     <Typography
-                                        variant="h5"
+                                        variant="h6"
                                         noWrap>
-                                        <LabelIcon /> {aquarium.name}
+                                        <LabelIcon
+                                            sx={{
+                                                verticalAlign: -2,
+                                                fontSize: 20,
+                                            }}
+                                        />{" "}
+                                        {aquarium.name}
                                     </Typography>
                                     <Typography
-                                        variant="h5"
+                                        variant="h6"
                                         noWrap>
-                                        <SquareFootIcon />
+                                        <SquareFootIcon
+                                            sx={{
+                                                verticalAlign: -2,
+                                                fontSize: 22,
+                                            }}
+                                        />{" "}
                                         {aquarium.length}"x
-                                        {aquarium.width}"x{aquarium.height}"
+                                        {aquarium.width}"x{aquarium.height}" (
+                                        {(
+                                            (aquarium.length *
+                                                aquarium.width *
+                                                aquarium.height) /
+                                            231
+                                        ).toFixed(2)}{" "}
+                                        gallons)
                                     </Typography>
                                     <Typography
-                                        variant="h5"
+                                        variant="h6"
                                         noWrap>
-                                        <CommentIcon />
+                                        <CommentIcon
+                                            sx={{
+                                                verticalAlign: -2,
+                                                fontSize: 20,
+                                            }}
+                                        />{" "}
                                         {aquarium.note}
                                     </Typography>
                                     <Typography
-                                        variant="h5"
+                                        variant="h6"
                                         noWrap
                                         textAlign="center">
                                         <img
                                             src={aquarium.image_url}
                                             width={200}
-                                            maxHeight={100}></img>
+                                            maxHeight={100}
+                                            className="drop"></img>
                                     </Typography>
                                 </CardContent>
-                                <CardActions>
+                                <CardActions sx={{ justifyContent: "center" }}>
                                     <Button
                                         onClick={(e) =>
                                             viewAquariumDetail(aquarium)
-                                        }>
-                                        Click to View More Detail
+                                        }
+                                        // className="button"
+                                        sx={{
+                                            textTransform: "none",
+                                            backgroundColor: "#EAB06E",
+                                            color: "black",
+
+                                            ":hover": {
+                                                bgcolor: "#F2DDA6",
+                                                color: "black",
+                                            },
+                                        }}>
+                                        View Details
                                     </Button>
                                 </CardActions>
                             </Card>

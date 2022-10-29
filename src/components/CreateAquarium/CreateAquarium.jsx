@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import Button from "@mui/material/Button";
+import { Typography, TextField } from "@mui/material";
+import { Container } from "@mui/system";
+import "./PlainTextField.css";
 
 const CreateAquarium = () => {
     const [name, setName] = useState("");
@@ -84,152 +88,201 @@ const CreateAquarium = () => {
 
     return (
         <>
-            <h2>Enter in the Details of the New Aquarium</h2>
+            <Container pb={15}>
+                <Typography
+                    variant="h3"
+                    textAlign="center"
+                    sx={{ fontFamily: "Rubik" }}>
+                    Enter in the Details of the New Aquarium
+                </Typography>
+                <br />
+                <TextField
+                    autoFocus
+                    variant="filled"
+                    fullWidth="true"
+                    className="textfield"
+                    // sx={{
+                    //     input: {
+                    //         color: "black",
+                    //         backgroundColor: "#F2DDA6",
+                    //         fontFamily: "Rubik",
+                    //     },
+                    // }}
+                    // InputLabelProps={{ style: { color: "red" } }}
+                    type="text"
+                    label="Name"
+                    name="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
+                <br />
+                <TextField
+                    autoFocus
+                    variant="filled"
+                    fullWidth="true"
+                    className="textfield"
+                    label="Length of aquarium (inches)"
+                    type="number"
+                    name="length"
+                    value={length}
+                    onChange={(e) => setLength(e.target.value)}
+                />
+                <br />
+                <TextField
+                    autoFocus
+                    variant="filled"
+                    fullWidth="true"
+                    className="textfield"
+                    label="Width of aquarium (inches)"
+                    type="number"
+                    name="width"
+                    value={width}
+                    onChange={(e) => setWidth(e.target.value)}
+                />
+                <br />
+                <TextField
+                    autoFocus
+                    variant="filled"
+                    fullWidth="true"
+                    className="textfield"
+                    label="Height of aquarium (inches)"
+                    type="number"
+                    name="height"
+                    value={height}
+                    onChange={(e) => setHeight(e.target.value)}
+                />
+                <br />
+                <TextField
+                    autoFocus
+                    variant="filled"
+                    fullWidth="true"
+                    className="textfield"
+                    label="Note"
+                    type="text"
+                    name="note"
+                    value={note}
+                    onChange={(e) => setNote(e.target.value)}
+                />
+                <br />
+                <TextField
+                    autoFocus
+                    variant="filled"
+                    fullWidth="true"
+                    className="textfield"
+                    label="Input the complete image url"
+                    type="text"
+                    name="image_url"
+                    value={image_url}
+                    onChange={(e) => setImage_url(e.target.value)}
+                />
+                <br />
 
-            <input
-                type="text"
-                placeholder="Name of aquarium"
-                name="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
-            <br />
-            <input
-                type="number"
-                placeholder="Length of aquarium"
-                name="length"
-                value={length}
-                onChange={(e) => setLength(e.target.value)}
-            />
-            <br />
-            <input
-                type="number"
-                placeholder="Width of aquarium"
-                name="width"
-                value={width}
-                onChange={(e) => setWidth(e.target.value)}
-            />
-            <br />
-            <input
-                type="number"
-                placeholder="Height of aquarium"
-                name="height"
-                value={height}
-                onChange={(e) => setHeight(e.target.value)}
-            />
-            <br />
-            <input
-                type="text"
-                placeholder="Note"
-                name="note"
-                value={note}
-                onChange={(e) => setNote(e.target.value)}
-            />
-            <br />
-            <input
-                type="text"
-                placeholder="Input complete image_url"
-                name="image_url"
-                value={image_url}
-                onChange={(e) => setImage_url(e.target.value)}
-            />
-            <br />
-
-            <h3>
-                If you would like to add an item, please select a category
-                below.
-            </h3>
-            <input
-                type="radio"
-                name={productType}
-                value="livestock"
-                checked={productType === "livestock"}
-                onChange={(e) => setProductType(e.target.value)}
-            />
-            <label htmlFor="livestock">Livestock</label>
-            <br />
-            <input
-                type="radio"
-                name={productType}
-                value="plant"
-                checked={productType === "plant"}
-                onChange={(e) => setProductType(e.target.value)}
-            />
-            <label htmlFor="plant">Plant</label>
-            <br />
-            <input
-                type="radio"
-                name={productType}
-                value="rock"
-                checked={productType === "rock"}
-                onChange={(e) => setProductType(e.target.value)}
-            />
-            <label htmlFor="rock">Rock</label>
-            <br />
-            <input
-                type="radio"
-                name={productType}
-                value="driftwood"
-                checked={productType === "driftwood"}
-                onChange={(e) => setProductType(e.target.value)}
-            />
-            <label htmlFor="driftwood">Driftwood</label>
-            <br />
-            <input
-                type="radio"
-                name={productType}
-                value="substrate"
-                checked={productType === "substrate"}
-                onChange={(e) => setProductType(e.target.value)}
-            />
-            <label htmlFor="substrate">Substrate</label>
-            <br />
-            <h3>
-                Then, type in the name and cost (if any) of that item. Add it
-                with "add item". It will appear below. You can remove
-                temporarily added items with "remove".
-            </h3>
-            <input
-                type="text"
-                placeholder="Name of item"
-                name="typeDescription"
-                value={typeDescription}
-                onChange={(e) => setTypeDescription(e.target.value)}
-            />
-            <br />
-            <input
-                type="number"
-                placeholder="Cost of item"
-                name="cost"
-                value={cost}
-                onChange={(e) => setCost(e.target.value)}
-            />
-            <br />
-            <button onClick={addSingleItem}>Add item</button>
-            <h3>
-                When you are completely done, please press "Finish Creating
-                Aquarium" to save the aquarium.
-            </h3>
-            <div>
-                <h4>Current Items in Aquarium</h4>
-                {products.map((item) => {
-                    return (
-                        <ul key={item.id}>
-                            <li>
-                                {item.id}:{item.productType}:
-                                {item.typeDescription}:${item.cost}
-                                <button
-                                    onClick={(e) => deleteProductItem(e, item)}>
-                                    Remove
-                                </button>
-                            </li>
-                        </ul>
-                    );
-                })}
-            </div>
-            <button onClick={(e) => newAquarium(e)}>
-                Finish Creating Aquarium
-            </button>
+                <h3>
+                    If you would like to add an item, please select a category
+                    below.
+                </h3>
+                <input
+                    type="radio"
+                    name={productType}
+                    value="livestock"
+                    checked={productType === "livestock"}
+                    onChange={(e) => setProductType(e.target.value)}
+                />
+                <label htmlFor="livestock">Livestock</label>
+                <br />
+                <input
+                    type="radio"
+                    name={productType}
+                    value="plant"
+                    checked={productType === "plant"}
+                    onChange={(e) => setProductType(e.target.value)}
+                />
+                <label htmlFor="plant">Plant</label>
+                <br />
+                <input
+                    type="radio"
+                    name={productType}
+                    value="rock"
+                    checked={productType === "rock"}
+                    onChange={(e) => setProductType(e.target.value)}
+                />
+                <label htmlFor="rock">Rock</label>
+                <br />
+                <input
+                    type="radio"
+                    name={productType}
+                    value="driftwood"
+                    checked={productType === "driftwood"}
+                    onChange={(e) => setProductType(e.target.value)}
+                />
+                <label htmlFor="driftwood">Driftwood</label>
+                <br />
+                <input
+                    type="radio"
+                    name={productType}
+                    value="substrate"
+                    checked={productType === "substrate"}
+                    onChange={(e) => setProductType(e.target.value)}
+                />
+                <label htmlFor="substrate">Substrate</label>
+                <br />
+                <h3>
+                    Then, type in the name and cost (if any) of that item. Add
+                    it with "add item". It will appear below. You can remove
+                    temporarily added items with "remove".
+                </h3>
+                <TextField
+                    autoFocus
+                    variant="filled"
+                    fullWidth="true"
+                    className="textfield"
+                    label="Name of item"
+                    type="text"
+                    name="typeDescription"
+                    value={typeDescription}
+                    onChange={(e) => setTypeDescription(e.target.value)}
+                />
+                <br />
+                <TextField
+                    autoFocus
+                    variant="filled"
+                    fullWidth="true"
+                    className="textfield"
+                    label="Cost of item"
+                    type="number"
+                    name="cost"
+                    value={cost}
+                    onChange={(e) => setCost(e.target.value)}
+                />
+                <br />
+                <button onClick={addSingleItem}>Add item</button>
+                <h3>
+                    When you are completely done, please press "Finish Creating
+                    Aquarium" to save the aquarium.
+                </h3>
+                <div>
+                    <h4>Current Items in Aquarium</h4>
+                    {products.map((item) => {
+                        return (
+                            <ul key={item.id}>
+                                <li>
+                                    {item.id}:{item.productType}:
+                                    {item.typeDescription}:${item.cost}
+                                    <button
+                                        onClick={(e) =>
+                                            deleteProductItem(e, item)
+                                        }>
+                                        Remove
+                                    </button>
+                                </li>
+                            </ul>
+                        );
+                    })}
+                </div>
+                <button onClick={(e) => newAquarium(e)}>
+                    Finish Creating Aquarium
+                </button>
+            </Container>
         </>
     );
 };

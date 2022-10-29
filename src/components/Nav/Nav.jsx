@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import LogOutButton from "../LogOutButton/LogOutButton";
 import "./Nav.css";
 import { useSelector } from "react-redux";
+import SetMealIcon from "@mui/icons-material/SetMeal";
 
 function Nav() {
     const user = useSelector((store) => store.user);
@@ -10,7 +11,15 @@ function Nav() {
     return (
         <div className="nav">
             <Link to="/home">
-                <h2 className="nav-title">Aquarium Builder</h2>
+                <h2 className="nav-title">
+                    <SetMealIcon
+                        sx={{
+                            verticalAlign: -8,
+                            fontSize: 30,
+                        }}
+                    />
+                    Aquarium Builder
+                </h2>
             </Link>
             <div>
                 {/* If no user is logged in, show these links */}
