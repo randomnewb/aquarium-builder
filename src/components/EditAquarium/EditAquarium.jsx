@@ -84,6 +84,17 @@ const EditAquarium = () => {
         }
     };
 
+    const previousPage = (e) => {
+        console.log("Go to previous page");
+        if (
+            confirm(
+                "Are you sure you want to cancel and go back to the previous page?"
+            )
+        ) {
+            history.goBack();
+        }
+    };
+
     return (
         <>
             <Container>
@@ -112,6 +123,7 @@ const EditAquarium = () => {
                     className="textfield"
                     label="Length of aquarium (inches)"
                     type="number"
+                    InputProps={{ inputProps: { min: 0 } }}
                     name="length"
                     value={length}
                     onChange={(e) => setLength(e.target.value)}
@@ -123,6 +135,8 @@ const EditAquarium = () => {
                     fullWidth="true"
                     className="textfield"
                     label="Width of aquarium (inches)"
+                    type="number"
+                    InputProps={{ inputProps: { min: 0 } }}
                     name="width"
                     value={width}
                     onChange={(e) => setWidth(e.target.value)}
@@ -134,6 +148,7 @@ const EditAquarium = () => {
                     className="textfield"
                     label="Height of aquarium (inches)"
                     type="number"
+                    InputProps={{ inputProps: { min: 0 } }}
                     name="height"
                     value={height}
                     onChange={(e) => setHeight(e.target.value)}
@@ -160,6 +175,22 @@ const EditAquarium = () => {
                     value={image_url}
                     onChange={(e) => setImage_url(e.target.value)}
                 />
+                <br />
+                <br />
+                <Button
+                    onClick={(e) => previousPage(e)}
+                    sx={{
+                        textTransform: "none",
+                        backgroundColor: "#EAB06E",
+                        color: "black",
+
+                        ":hover": {
+                            bgcolor: "#F2DDA6",
+                            color: "black",
+                        },
+                    }}>
+                    Cancel Editing
+                </Button>
                 <br />
                 <br />
                 <Button

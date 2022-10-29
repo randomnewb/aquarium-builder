@@ -122,6 +122,7 @@ const CreateAquarium = () => {
                     className="textfield"
                     label="Length of aquarium (inches)"
                     type="number"
+                    InputProps={{ inputProps: { min: 0 } }}
                     name="length"
                     value={length}
                     onChange={(e) => setLength(e.target.value)}
@@ -133,6 +134,7 @@ const CreateAquarium = () => {
                     className="textfield"
                     label="Width of aquarium (inches)"
                     type="number"
+                    InputProps={{ inputProps: { min: 0 } }}
                     name="width"
                     value={width}
                     onChange={(e) => setWidth(e.target.value)}
@@ -144,6 +146,7 @@ const CreateAquarium = () => {
                     className="textfield"
                     label="Height of aquarium (inches)"
                     type="number"
+                    InputProps={{ inputProps: { min: 0 } }}
                     name="height"
                     value={height}
                     onChange={(e) => setHeight(e.target.value)}
@@ -243,6 +246,7 @@ const CreateAquarium = () => {
                     className="textfield"
                     label="Cost of item"
                     type="number"
+                    InputProps={{ inputProps: { min: 0 } }}
                     name="cost"
                     value={cost}
                     onChange={(e) => setCost(e.target.value)}
