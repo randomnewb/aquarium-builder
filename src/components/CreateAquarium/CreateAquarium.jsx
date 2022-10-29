@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { Typography, TextField } from "@mui/material";
 import { Container } from "@mui/system";
-import "./PlainTextField.css";
+import "../../css/PlainTextField.css";
 
 const CreateAquarium = () => {
     const [name, setName] = useState("");
@@ -88,7 +88,7 @@ const CreateAquarium = () => {
 
     return (
         <>
-            <Container pb={15}>
+            <Container>
                 <Typography
                     variant="h3"
                     textAlign="center"
@@ -117,7 +117,6 @@ const CreateAquarium = () => {
                 />
                 <br />
                 <TextField
-                    autoFocus
                     variant="filled"
                     fullWidth="true"
                     className="textfield"
@@ -129,7 +128,6 @@ const CreateAquarium = () => {
                 />
                 <br />
                 <TextField
-                    autoFocus
                     variant="filled"
                     fullWidth="true"
                     className="textfield"
@@ -141,7 +139,6 @@ const CreateAquarium = () => {
                 />
                 <br />
                 <TextField
-                    autoFocus
                     variant="filled"
                     fullWidth="true"
                     className="textfield"
@@ -153,7 +150,6 @@ const CreateAquarium = () => {
                 />
                 <br />
                 <TextField
-                    autoFocus
                     variant="filled"
                     fullWidth="true"
                     className="textfield"
@@ -165,7 +161,6 @@ const CreateAquarium = () => {
                 />
                 <br />
                 <TextField
-                    autoFocus
                     variant="filled"
                     fullWidth="true"
                     className="textfield"
@@ -232,7 +227,6 @@ const CreateAquarium = () => {
                     temporarily added items with "remove".
                 </h3>
                 <TextField
-                    autoFocus
                     variant="filled"
                     fullWidth="true"
                     className="textfield"
@@ -244,7 +238,6 @@ const CreateAquarium = () => {
                 />
                 <br />
                 <TextField
-                    autoFocus
                     variant="filled"
                     fullWidth="true"
                     className="textfield"
@@ -255,7 +248,20 @@ const CreateAquarium = () => {
                     onChange={(e) => setCost(e.target.value)}
                 />
                 <br />
-                <button onClick={addSingleItem}>Add item</button>
+                <Button
+                    onClick={addSingleItem}
+                    sx={{
+                        textTransform: "none",
+                        backgroundColor: "#EAB06E",
+                        color: "black",
+
+                        ":hover": {
+                            bgcolor: "#F2DDA6",
+                            color: "black",
+                        },
+                    }}>
+                    Add item
+                </Button>
                 <h3>
                     When you are completely done, please press "Finish Creating
                     Aquarium" to save the aquarium.
@@ -268,20 +274,41 @@ const CreateAquarium = () => {
                                 <li>
                                     {item.id}:{item.productType}:
                                     {item.typeDescription}:${item.cost}
-                                    <button
+                                    <Button
                                         onClick={(e) =>
                                             deleteProductItem(e, item)
-                                        }>
+                                        }
+                                        sx={{
+                                            textTransform: "none",
+                                            backgroundColor: "#EAB06E",
+                                            color: "black",
+
+                                            ":hover": {
+                                                bgcolor: "#F2DDA6",
+                                                color: "black",
+                                            },
+                                        }}>
                                         Remove
-                                    </button>
+                                    </Button>
                                 </li>
                             </ul>
                         );
                     })}
                 </div>
-                <button onClick={(e) => newAquarium(e)}>
+                <Button
+                    onClick={(e) => newAquarium(e)}
+                    sx={{
+                        textTransform: "none",
+                        backgroundColor: "#EAB06E",
+                        color: "black",
+
+                        ":hover": {
+                            bgcolor: "#F2DDA6",
+                            color: "black",
+                        },
+                    }}>
                     Finish Creating Aquarium
-                </button>
+                </Button>
             </Container>
         </>
     );

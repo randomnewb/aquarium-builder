@@ -53,17 +53,43 @@ function UserPage() {
                         Welcome, {user.username}!
                     </Typography>
                     <br />
-                    <Typography
-                        variant="h3"
-                        textAlign="center"
-                        sx={{ fontFamily: "Rubik" }}>
-                        Your Current Aquariums
-                    </Typography>
-                    <Typography textAlign="center">
-                        {/* <Button onClick={() => history.push("/setup")}>
-                            Create a New Aquarium
-                        </Button> */}
-                    </Typography>
+                    {aquariums.length === 0 && (
+                        <Typography
+                            variant="h3"
+                            textAlign="center"
+                            sx={{ fontFamily: "Rubik" }}>
+                            There are currently no aquariums.
+                        </Typography>
+                    )}
+                    {aquariums.length > 0 && (
+                        <Typography
+                            variant="h3"
+                            textAlign="center"
+                            sx={{ fontFamily: "Rubik" }}>
+                            Current Aquariums
+                        </Typography>
+                    )}
+                    {aquariums.length === 0 && (
+                        <Typography textAlign="center">
+                            <br />
+                            <br />
+                            <br />
+                            <Button
+                                onClick={() => history.push("/setup")}
+                                sx={{
+                                    textTransform: "none",
+                                    backgroundColor: "#EAB06E",
+                                    color: "black",
+
+                                    ":hover": {
+                                        bgcolor: "#F2DDA6",
+                                        color: "black",
+                                    },
+                                }}>
+                                Create a New Aquarium
+                            </Button>
+                        </Typography>
+                    )}
                 </Container>
                 {/* <p>Your ID is: {user.id}</p> */}
                 {/* <LogOutButton className="btn" /> */}

@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
+import Button from "@mui/material/Button";
+import { Typography, TextField } from "@mui/material";
+import { Container } from "@mui/system";
+import "../../css/PlainTextField.css";
 
 const EditAquarium = () => {
     const dispatch = useDispatch();
@@ -82,66 +86,113 @@ const EditAquarium = () => {
 
     return (
         <>
-            <h2>Edit the Details of the Aquarium</h2>
-            <form onSubmit={(e) => editAquarium(e)}>
-                <input
+            <Container>
+                <Typography
+                    variant="h3"
+                    textAlign="center"
+                    sx={{ fontFamily: "Rubik" }}>
+                    Edit the Details of the Aquarium
+                </Typography>
+                <br />
+                <TextField
+                    autofocus
+                    variant="filled"
+                    fullWidth="true"
+                    className="textfield"
+                    label="Name of aquarium"
                     type="text"
-                    placeholder="Name of aquarium"
                     name="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
                 <br />
-                <input
+                <TextField
+                    variant="filled"
+                    fullWidth="true"
+                    className="textfield"
+                    label="Length of aquarium (inches)"
                     type="number"
-                    placeholder="Length of aquarium"
                     name="length"
                     value={length}
                     onChange={(e) => setLength(e.target.value)}
                 />
 
                 <br />
-                <input
-                    type="number"
-                    placeholder="Width of aquarium"
+                <TextField
+                    variant="filled"
+                    fullWidth="true"
+                    className="textfield"
+                    label="Width of aquarium (inches)"
                     name="width"
                     value={width}
                     onChange={(e) => setWidth(e.target.value)}
                 />
                 <br />
-                <input
+                <TextField
+                    variant="filled"
+                    fullWidth="true"
+                    className="textfield"
+                    label="Height of aquarium (inches)"
                     type="number"
-                    placeholder="Height of aquarium"
                     name="height"
                     value={height}
                     onChange={(e) => setHeight(e.target.value)}
                 />
                 <br />
-                <input
+                <TextField
+                    variant="filled"
+                    fullWidth="true"
+                    className="textfield"
+                    label="Note"
                     type="text"
-                    placeholder="Note"
                     name="note"
                     value={note}
                     onChange={(e) => setNote(e.target.value)}
                 />
                 <br />
-                <input
+                <TextField
+                    variant="filled"
+                    fullWidth="true"
+                    className="textfield"
+                    label="Input the complete image url"
                     type="text"
-                    placeholder="Input complete image_url"
                     name="image_url"
                     value={image_url}
                     onChange={(e) => setImage_url(e.target.value)}
                 />
                 <br />
-                <input
-                    type="submit"
-                    value="Finish Editing Aquarium"
-                />
-            </form>
+                <br />
+                <Button
+                    onClick={(e) => editAquarium(e)}
+                    sx={{
+                        textTransform: "none",
+                        backgroundColor: "#EAB06E",
+                        color: "black",
 
-            <button onClick={() => deleteAquarium(aquarium)}>
-                Delete Aquarium
-            </button>
+                        ":hover": {
+                            bgcolor: "#F2DDA6",
+                            color: "black",
+                        },
+                    }}>
+                    Finish Editing Aquarium
+                </Button>
+                <br />
+                <br />
+                <Button
+                    onClick={() => deleteAquarium(aquarium)}
+                    sx={{
+                        textTransform: "none",
+                        backgroundColor: "#EAB06E",
+                        color: "black",
+
+                        ":hover": {
+                            bgcolor: "#F2DDA6",
+                            color: "black",
+                        },
+                    }}>
+                    Delete Aquarium
+                </Button>
+            </Container>
         </>
     );
 };

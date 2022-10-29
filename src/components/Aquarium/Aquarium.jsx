@@ -9,6 +9,14 @@ import { useDispatch, useSelector } from "react-redux";
 // Import useHistory so we can go back /home when we're done
 import { useParams, useHistory } from "react-router-dom";
 
+import Button from "@mui/material/Button";
+import { Typography } from "@mui/material";
+import { Container } from "@mui/system";
+import "../../css/PlainTextField.css";
+import SquareFootIcon from "@mui/icons-material/SquareFoot";
+import LabelIcon from "@mui/icons-material/Label";
+import CommentIcon from "@mui/icons-material/Comment";
+
 const Aquarium = () => {
     const history = useHistory();
 
@@ -47,39 +55,105 @@ const Aquarium = () => {
     };
 
     return (
-        <div>
-            {/* {JSON.stringify(products)} */}
-            <h3> {aquarium.name}</h3>
-            <h3> Length: {aquarium.length}</h3>
-            <h3> Width: {aquarium.width}</h3>
-            <h3> Height: {aquarium.height}</h3>
-            <h3> Note: {aquarium.note}</h3>
-            <img
-                src={aquarium.image_url}
-                style={{ width: 300 }}></img>
-            <br />
-            <div>
-                <h4>Current Items in Aquarium</h4>
-                {products.map((item) => {
-                    return (
-                        <ul key={item.id}>
-                            <li>
-                                {item.product_type_id}: {item.description},
-                                Cost: ${item.cost}
-                            </li>
-                        </ul>
-                    );
-                })}
-            </div>
-            <br />
-            <button onClick={() => editAquarium(aquarium)}>
-                Edit Aquarium
-            </button>
-            <br />
-            <button onClick={() => deleteAquarium(aquarium)}>
-                Delete Aquarium
-            </button>
-        </div>
+        <>
+            <Container>
+                {/* {JSON.stringify(products)} */}
+                <Typography
+                    variant="h3"
+                    noWrap>
+                    <LabelIcon
+                        sx={{
+                            verticalAlign: -2,
+                            fontSize: 20,
+                        }}
+                    />{" "}
+                    {aquarium.name}
+                </Typography>
+                <Typography
+                    variant="h4"
+                    noWrap>
+                    <SquareFootIcon
+                        sx={{
+                            verticalAlign: -2,
+                            fontSize: 22,
+                        }}
+                    />{" "}
+                    {aquarium.length}"x
+                    {aquarium.width}"x{aquarium.height}" (
+                    {(
+                        (aquarium.length * aquarium.width * aquarium.height) /
+                        231
+                    ).toFixed(2)}{" "}
+                    gallons)
+                </Typography>
+                <Typography
+                    variant="h4"
+                    noWrap>
+                    <CommentIcon
+                        sx={{
+                            verticalAlign: -2,
+                            fontSize: 20,
+                        }}
+                    />{" "}
+                    {aquarium.note}
+                </Typography>
+                <br />
+                <Typography variant="h6">
+                    <img
+                        src={aquarium.image_url}
+                        width={400}
+                        maxHeight={300}
+                        className="drop"></img>
+                </Typography>
+                <br />
+                <Typography variant="h4">
+                    Current Organisms and Items in Aquarium
+                    {products.map((item) => {
+                        return (
+                            <Typography variant="h5">
+                                <ul key={item.id}>
+                                    <li>
+                                        {item.product_type_id}:{" "}
+                                        {item.description}, Cost: ${item.cost}
+                                    </li>
+                                </ul>
+                            </Typography>
+                        );
+                    })}
+                </Typography>
+                <br />
+                <Button
+                    onClick={() => editAquarium(aquarium)}
+                    sx={{
+                        textTransform: "none",
+                        backgroundColor: "#EAB06E",
+                        color: "black",
+
+                        ":hover": {
+                            bgcolor: "#F2DDA6",
+                            color: "black",
+                        },
+                    }}>
+                    Edit Aquarium
+                </Button>
+                <br />
+                <br />
+                <Button
+                    onClick={() => deleteAquarium(aquarium)}
+                    sx={{
+                        textTransform: "none",
+                        backgroundColor: "#EAB06E",
+                        color: "black",
+
+                        ":hover": {
+                            bgcolor: "#F2DDA6",
+                            color: "black",
+                        },
+                    }}>
+                    Delete Aquarium
+                </Button>
+            </Container>
+        </>
     );
 };
 
