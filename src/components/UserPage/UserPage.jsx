@@ -45,7 +45,7 @@ function UserPage() {
                 className="container"
                 container
                 spacing={2}>
-                <Container maxWidth={true}>
+                <Container maxwidth="true">
                     <Typography
                         variant="h4"
                         textAlign="center"

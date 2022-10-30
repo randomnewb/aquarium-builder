@@ -7,10 +7,8 @@ import axios from "axios";
 // a root saga generator function for all our aquarium CRUD
 function* productSaga() {
     yield takeLatest("FETCH_PRODUCTS", fetchProducts);
+    yield takeLatest("FETCH_LAST_PRODUCT_ID", fetchLastProductId);
 }
-
-// Comment this out for now until dummy data can be entered and tested
-// Server-side routes need to be worked on
 
 function* fetchProducts(action) {
     // Get all aquariums from database
@@ -24,6 +22,21 @@ function* fetchProducts(action) {
     } catch (error) {
         console.log("Error fetching all products", error);
         alert("Something went wrong fetching all products");
+    }
+}
+
+function* fetchLastProductId() {
+    // Get the last product id
+    try {
+        const lastProductId = yield axios.get("/api/product/last");
+        console.log("getting last product id", lastProductId.data);
+        yield put({
+            type: "SET_LAST_PRODUCT_ID",
+            payload: lastProductId.data,
+        });
+    } catch (error) {
+        console.log("Error fetting last product id", error);
+        alert("Something went wrong fetching last product id");
     }
 }
 

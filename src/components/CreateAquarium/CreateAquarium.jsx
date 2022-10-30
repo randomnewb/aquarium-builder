@@ -10,16 +10,23 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 
 const CreateAquarium = () => {
+    // Singular properties of the aquarium
     const [name, setName] = useState("");
     const [length, setLength] = useState(0);
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const [note, setNote] = useState("");
     const [image_url, setImage_url] = useState("");
+
+    // Product type
     const [productType, setProductType] = useState("livestock");
+
+    // Properties of product
     const [typeDescription, setTypeDescription] = useState("");
     const [cost, setCost] = useState(0);
-    const [id, setId] = useState(0);
+    const [productId, setProductId] = useState(0);
+
+    // Our products are stored here
     const [products, setProducts] = useState([]);
 
     const dispatch = useDispatch();
@@ -50,18 +57,6 @@ const CreateAquarium = () => {
         }
     };
 
-    // const addSingleItem = (e) => {
-    //     e.preventDefault();
-    //     console.log(
-    //         "Adding a single item with type:",
-    //         productType,
-    //         "and description:",
-    //         typeDescription
-    //     );
-    //     products.push({ productType, typeDescription });
-    //     console.log("Produts is", products);
-    // };
-
     const addSingleItem = () => {
         console.log(
             "type and description are",
@@ -72,10 +67,10 @@ const CreateAquarium = () => {
             "products are",
             products
         );
-        setId(id + 1);
+        setProductId(productId + 1);
         setProducts((products) => [
             ...products,
-            { id, productType, typeDescription, cost },
+            { productId, productType, typeDescription, cost },
         ]);
         setProductType("livestock");
         setTypeDescription("");
@@ -85,7 +80,9 @@ const CreateAquarium = () => {
     const deleteProductItem = (e, itemToDelete) => {
         e.preventDefault();
         setProducts((products) =>
-            products.filter((items) => items.id !== itemToDelete.id)
+            products.filter(
+                (items) => items.productId !== itemToDelete.productId
+            )
         );
     };
 
@@ -269,50 +266,7 @@ const CreateAquarium = () => {
                         substrate
                     </MenuItem>
                 </Select>
-                {/* <input
-                    type="radio"
-                    name={productType}
-                    value="livestock"
-                    checked={productType === "livestock"}
-                    onChange={(e) => setProductType(e.target.value)}
-                />
-                <label htmlFor="livestock">Livestock</label>
-                <br />
-                <input
-                    type="radio"
-                    name={productType}
-                    value="plant"
-                    checked={productType === "plant"}
-                    onChange={(e) => setProductType(e.target.value)}
-                />
-                <label htmlFor="plant">Plant</label>
-                <br />
-                <input
-                    type="radio"
-                    name={productType}
-                    value="rock"
-                    checked={productType === "rock"}
-                    onChange={(e) => setProductType(e.target.value)}
-                />
-                <label htmlFor="rock">Rock</label>
-                <br />
-                <input
-                    type="radio"
-                    name={productType}
-                    value="driftwood"
-                    checked={productType === "driftwood"}
-                    onChange={(e) => setProductType(e.target.value)}
-                />
-                <label htmlFor="driftwood">Driftwood</label>
-                <br />
-                <input
-                    type="radio"
-                    name={productType}
-                    value="substrate"
-                    checked={productType === "substrate"}
-                    onChange={(e) => setProductType(e.target.value)}
-                />
-                <label htmlFor="substrate">Substrate</label> */}
+
                 <br />
                 <h3>
                     Then, type in the name and cost (if any). Next, choose
@@ -396,7 +350,7 @@ const CreateAquarium = () => {
                                         Remove
                                     </Button>
                                     {/* {item.id} */}
-                                    Type: {item.productType}, Label:
+                                    Type: {item.productType}, Label:{" "}
                                     {item.typeDescription}, Cost: ${item.cost}
                                 </li>
                             </ul>

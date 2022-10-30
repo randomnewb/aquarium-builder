@@ -1,3 +1,5 @@
+import { combineReducers } from "redux";
+
 const allProducts = (state = [], action) => {
     switch (action.type) {
         case "SET_PRODUCTS":
@@ -7,4 +9,16 @@ const allProducts = (state = [], action) => {
     }
 };
 
-export default allProducts;
+const lastProductId = (state = {}, action) => {
+    switch (action.type) {
+        case "SET_LAST_PRODUCT_ID":
+            return action.payload;
+        default:
+            return state;
+    }
+};
+
+export default combineReducers({
+    allProducts,
+    lastProductId,
+});

@@ -24,6 +24,32 @@ router.get("/", (req, res) => {
     }
 });
 
+// This obtains the last entered id from the product table
+// We will use this when we are editing the products
+// So that there are no accidental replacements when a new product is created/added
+router.get("/last", (req, res) => {
+    if (req.isAuthenticated()) {
+        const sql = `
+        SELECT COALESCE(MAX(id), 0) + 1 as id FROM "product"`;
+
+        pool.query(sql)
+            .then((result) => {
+                // console.log(result.rows[0].id);
+                // result.rows = result.rows[0].id;
+                // result.rows = result.rows[0].id;
+                // console.log("what is rows", result.rows);
+
+                res.send(result.rows[0]);
+            })
+            .catch((e) => {
+                console.log("Error getting latest product id", e);
+                res.sendStatus(500);
+            });
+    } else {
+        res.sendStatus(403); // Forbidden, need to be logged in
+    }
+});
+
 // GET Route by id
 router.get("/:id", (req, res) => {
     if (req.isAuthenticated()) {
@@ -32,30 +58,42 @@ router.get("/:id", (req, res) => {
         JOIN "product" ON "aquarium"."id" = "product"."aquarium_id"
         WHERE "aquarium_id" = $1 and "user_id" = $2;
         `;
+
         pool.query(sql, [req.params.id, req.user.id])
+
             .then((result) => {
-                console.log(result.rows[0]);
+                // console.log("before", result.rows);
+
+                for (let i = 0; result.rows.length > i; i++) {
+                    result.rows[i].productType = result.rows[i].product_type_id;
+                    result.rows[i].typeDescription = result.rows[i].description;
+                    result.rows[i].productId = result.rows[i].id;
+                    delete result.rows[i].product_type_id;
+                    delete result.rows[i].description;
+                }
 
                 for (let i = 0; result.rows.length > i; i++) {
                     //convert productTypes
-                    switch (result.rows[i].product_type_id) {
+                    switch (result.rows[i].productType) {
                         case 1:
-                            result.rows[i].product_type_id = "livestock";
+                            result.rows[i].productType = "livestock";
                             break;
                         case 2:
-                            result.rows[i].product_type_id = "plant";
+                            result.rows[i].productType = "plant";
                             break;
                         case 3:
-                            result.rows[i].product_type_id = "rock";
+                            result.rows[i].productType = "rock";
                             break;
                         case 4:
-                            result.rows[i].product_type_id = "driftwood";
+                            result.rows[i].productType = "driftwood";
                             break;
                         case 5:
-                            result.rows[i].product_type_id = "substrate";
+                            result.rows[i].productType = "substrate";
                             break;
                     }
                 }
+                // console.log("after", result.rows);
+
                 res.send(result.rows);
             })
             .catch((e) => {

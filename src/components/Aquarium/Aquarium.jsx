@@ -21,7 +21,7 @@ const Aquarium = () => {
     const history = useHistory();
 
     const aquarium = useSelector((store) => store.aquariums.specificAquarium);
-    const products = useSelector((store) => store.products);
+    const products = useSelector((store) => store.products.allProducts);
     // id matches Route and exact path from App.jsx "/aquarium/:id
     const { id } = useParams();
     const dispatch = useDispatch();
@@ -108,19 +108,19 @@ const Aquarium = () => {
                 <br />
                 <Typography variant="h4">
                     Current Organisms and Items in Aquarium
-                    {products.map((item) => {
-                        return (
-                            <Typography variant="h5">
-                                <ul key={item.id}>
-                                    <li>
-                                        {item.product_type_id}:{" "}
-                                        {item.description}, Cost: ${item.cost}
-                                    </li>
-                                </ul>
-                            </Typography>
-                        );
-                    })}
                 </Typography>
+                {products.map((item) => {
+                    return (
+                        <Typography variant="h5">
+                            <ul key={item.id}>
+                                <li>
+                                    {item.productType}: {item.typeDescription},
+                                    Cost: ${item.cost}
+                                </li>
+                            </ul>
+                        </Typography>
+                    );
+                })}
                 <br />
                 <Button
                     onClick={() => editAquarium(aquarium)}

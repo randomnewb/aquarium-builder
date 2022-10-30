@@ -144,6 +144,7 @@ router.put("/:id", (req, res) => {
         "image_url" = $6,
         "user_id" = $7
         WHERE "id" = $8
+        RETURNING "id";
         `;
 
         pool.query(sql, [
@@ -156,6 +157,60 @@ router.put("/:id", (req, res) => {
             req.user.id,
             req.params.id,
         ])
+            .then((result) => {
+                // console.log("what to delete", req.body.deleteProducts[0]);
+
+                const delSql = `
+                DELETE FROM "product" WHERE "id" = $1
+                `;
+
+                for (let i = 0; req.body.deleteProducts.length > i; i++) {
+                    pool.query(delSql, [req.body.deleteProducts[i]]);
+                }
+
+                console.log("new aquarium id is", result.rows[0].id, req.body); //ID IS HERE!
+                // console.log(req.body.product);
+
+                const newAquariumId = result.rows[0].id;
+                // Add products into table
+                const sql2 = `
+        INSERT INTO "product" ("aquarium_id", "description", "cost", "product_type_id")
+        VALUES ($1, $2, $3, $4);
+        `;
+                // req.body.product is an array of all the selected genre_ids
+                // iterate through each one, sending our query above until
+                // we have an entry for each genre_id
+                if (req.body.product.length > 0) {
+                    for (let i = 0; req.body.product.length > i; i++) {
+                        //convert productTypes
+                        switch (req.body.product[i].productType) {
+                            case "livestock":
+                                req.body.product[i].productType = 1;
+                                break;
+                            case "plant":
+                                req.body.product[i].productType = 2;
+                                break;
+                            case "rock":
+                                req.body.product[i].productType = 3;
+                                break;
+                            case "driftwood":
+                                req.body.product[i].productType = 4;
+                                break;
+                            case "substrate":
+                                req.body.product[i].productType = 5;
+                                break;
+                        }
+                        // SECOND QUERY ADDS PRODUCT PROPERTIES
+                        pool.query(sql2, [
+                            newAquariumId,
+                            req.body.product[i].typeDescription,
+                            req.body.product[i].cost,
+                            req.body.product[i].productType,
+                        ]);
+                    }
+                }
+            })
+
             .then((result) => {
                 res.sendStatus(201);
             })
