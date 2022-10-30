@@ -1,4 +1,5 @@
 import React from "react";
+import { Typography } from "@mui/material";
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -9,9 +10,25 @@ function AboutPage() {
     return (
         <div className="container">
             <div>
-                <p>Thank you to:</p>
-                <p>Aquarium Builder was made with...</p>
-                {/* Built with React, Redux, Sagas, etc... */}
+                <Typography variant="h4">Thank you to:</Typography>
+                <Typography variant="h5">
+                    <ul>
+                        <li> Family and friends</li>
+                        <li> Saturday study groupmates</li>
+                        <li> Prime instructor, Chris</li>
+                        <li> Phrygian cohort</li>
+                    </ul>
+                </Typography>
+                <Typography variant="h4">
+                    Aquarium Builder was made with:
+                </Typography>
+                <Typography variant="h5">
+                    <ul>
+                        <li> React, Redux, Sagas</li>
+                        <li> Express.js, PostgresSQL</li>
+                        <li> Styled with MaterialUI</li>
+                    </ul>
+                </Typography>
             </div>
         </div>
     );

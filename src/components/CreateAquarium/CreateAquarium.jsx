@@ -19,7 +19,7 @@ const CreateAquarium = () => {
     const [image_url, setImage_url] = useState("");
 
     // Product type
-    const [productType, setProductType] = useState("livestock");
+    const [productType, setProductType] = useState("Livestock");
 
     // Properties of product
     const [typeDescription, setTypeDescription] = useState("");
@@ -72,7 +72,7 @@ const CreateAquarium = () => {
             ...products,
             { productId, productType, typeDescription, cost },
         ]);
-        setProductType("livestock");
+        setProductType("Livestock");
         setTypeDescription("");
         setCost(0);
     };
@@ -206,8 +206,8 @@ const CreateAquarium = () => {
                                 color: "black",
                             },
                         }}
-                        value="livestock">
-                        livestock
+                        value="Livestock">
+                        Livestock
                     </MenuItem>
                     <MenuItem
                         style={{
@@ -220,8 +220,8 @@ const CreateAquarium = () => {
                                 color: "black",
                             },
                         }}
-                        value="plant">
-                        plant
+                        value="Plant">
+                        Plant
                     </MenuItem>
                     <MenuItem
                         style={{
@@ -234,8 +234,8 @@ const CreateAquarium = () => {
                                 color: "black",
                             },
                         }}
-                        value="rock">
-                        rock
+                        value="Rock">
+                        Rock
                     </MenuItem>
                     <MenuItem
                         style={{
@@ -248,8 +248,8 @@ const CreateAquarium = () => {
                                 color: "black",
                             },
                         }}
-                        value="driftwood">
-                        driftwood
+                        value="Driftwood">
+                        Driftwood
                     </MenuItem>
                     <MenuItem
                         style={{
@@ -262,8 +262,8 @@ const CreateAquarium = () => {
                                 color: "black",
                             },
                         }}
-                        value="substrate">
-                        substrate
+                        value="Substrate">
+                        Substrate
                     </MenuItem>
                 </Select>
 

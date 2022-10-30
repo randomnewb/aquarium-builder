@@ -72,34 +72,8 @@ function LoginForm() {
                         label="Password"
                     />
                 </div>
+                <br />
                 <div>
-                    <Button
-                        // className="btn"
-                        onClick={login}
-                        type="button"
-                        name="submit"
-                        value="Log In"
-                        sx={{
-                            textTransform: "none",
-                            backgroundColor: "#EAB06E",
-                            color: "black",
-
-                            ":hover": {
-                                bgcolor: "#F2DDA6",
-                                color: "black",
-                            },
-                        }}
-                        style={{
-                            maxWidth: "150px",
-                            maxHeight: "100px",
-                            minWidth: "150px",
-                            minHeight: "10px",
-                            lineHeight: "50px",
-                            fontSize: "30px",
-                            marginRight: "10px",
-                        }}>
-                        Log In
-                    </Button>
                     <Button
                         type="button"
                         className="btn btn_asLink"
@@ -117,14 +91,40 @@ function LoginForm() {
                             },
                         }}
                         style={{
-                            maxWidth: "150px",
+                            maxWidth: "250px",
                             maxHeight: "100px",
-                            minWidth: "150px",
+                            minWidth: "250px",
                             minHeight: "10px",
                             lineHeight: "50px",
-                            fontSize: "30px",
+                            fontSize: "20px",
+                            marginRight: "10px",
                         }}>
-                        Register
+                        Register New Account
+                    </Button>
+                    <Button
+                        onClick={login}
+                        type="button"
+                        name="submit"
+                        value="Log In"
+                        sx={{
+                            textTransform: "none",
+                            backgroundColor: "#EAB06E",
+                            color: "black",
+
+                            ":hover": {
+                                bgcolor: "#F2DDA6",
+                                color: "black",
+                            },
+                        }}
+                        style={{
+                            maxWidth: "200px",
+                            maxHeight: "100px",
+                            minWidth: "200px",
+                            minHeight: "10px",
+                            lineHeight: "50px",
+                            fontSize: "20px",
+                        }}>
+                        Complete Log In
                     </Button>
                 </div>
             </Grid>

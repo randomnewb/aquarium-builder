@@ -76,19 +76,19 @@ router.get("/:id", (req, res) => {
                     //convert productTypes
                     switch (result.rows[i].productType) {
                         case 1:
-                            result.rows[i].productType = "livestock";
+                            result.rows[i].productType = "Livestock";
                             break;
                         case 2:
-                            result.rows[i].productType = "plant";
+                            result.rows[i].productType = "Plant";
                             break;
                         case 3:
-                            result.rows[i].productType = "rock";
+                            result.rows[i].productType = "Rock";
                             break;
                         case 4:
-                            result.rows[i].productType = "driftwood";
+                            result.rows[i].productType = "Driftwood";
                             break;
                         case 5:
-                            result.rows[i].productType = "substrate";
+                            result.rows[i].productType = "Substrate";
                             break;
                     }
                 }

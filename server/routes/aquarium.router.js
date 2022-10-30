@@ -78,19 +78,19 @@ router.post("/", (req, res) => {
                 for (let i = 0; req.body.product.length > i; i++) {
                     //convert productTypes
                     switch (req.body.product[i].productType) {
-                        case "livestock":
+                        case "Livestock":
                             req.body.product[i].productType = 1;
                             break;
-                        case "plant":
+                        case "Plant":
                             req.body.product[i].productType = 2;
                             break;
-                        case "rock":
+                        case "Rock":
                             req.body.product[i].productType = 3;
                             break;
-                        case "driftwood":
+                        case "Driftwood":
                             req.body.product[i].productType = 4;
                             break;
-                        case "substrate":
+                        case "Substrate":
                             req.body.product[i].productType = 5;
                             break;
                     }
@@ -184,19 +184,19 @@ router.put("/:id", (req, res) => {
                     for (let i = 0; req.body.product.length > i; i++) {
                         //convert productTypes
                         switch (req.body.product[i].productType) {
-                            case "livestock":
+                            case "Livestock":
                                 req.body.product[i].productType = 1;
                                 break;
-                            case "plant":
+                            case "Plant":
                                 req.body.product[i].productType = 2;
                                 break;
-                            case "rock":
+                            case "Rock":
                                 req.body.product[i].productType = 3;
                                 break;
-                            case "driftwood":
+                            case "Driftwood":
                                 req.body.product[i].productType = 4;
                                 break;
-                            case "substrate":
+                            case "Substrate":
                                 req.body.product[i].productType = 5;
                                 break;
                         }

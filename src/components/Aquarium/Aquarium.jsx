@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 
 import Button from "@mui/material/Button";
-import { Typography } from "@mui/material";
+import { Typography, Paper } from "@mui/material";
 import { Container } from "@mui/system";
 import "../../css/PlainTextField.css";
 import SquareFootIcon from "@mui/icons-material/SquareFoot";
@@ -57,70 +57,109 @@ const Aquarium = () => {
     return (
         <>
             <Container>
-                {/* {JSON.stringify(products)} */}
-                <Typography
-                    variant="h3"
-                    noWrap>
-                    <LabelIcon
-                        sx={{
-                            verticalAlign: -2,
-                            fontSize: 20,
-                        }}
-                    />{" "}
-                    {aquarium.name}
-                </Typography>
-                <Typography
-                    variant="h4"
-                    noWrap>
-                    <SquareFootIcon
-                        sx={{
-                            verticalAlign: -2,
-                            fontSize: 22,
-                        }}
-                    />{" "}
-                    {aquarium.length}"x
-                    {aquarium.width}"x{aquarium.height}" (
-                    {(
-                        (aquarium.length * aquarium.width * aquarium.height) /
-                        231
-                    ).toFixed(2)}{" "}
-                    gallons)
-                </Typography>
-                <Typography
-                    variant="h4"
-                    noWrap>
-                    <CommentIcon
-                        sx={{
-                            verticalAlign: -2,
-                            fontSize: 20,
-                        }}
-                    />{" "}
-                    {aquarium.note}
-                </Typography>
+                <Typography variant="h4">Aquarium Information</Typography>
                 <br />
-                <Typography variant="h6">
-                    <img
-                        src={aquarium.image_url}
-                        width={400}
-                        maxheight="true"
-                        className="drop"></img>
-                </Typography>
+                <Paper
+                    elevation={12}
+                    sx={{ p: 3, backgroundColor: "#0F506E", color: "white" }}>
+                    {/* {JSON.stringify(products)} */}
+                    <Typography
+                        variant="h4"
+                        noWrap>
+                        <LabelIcon
+                            sx={{
+                                verticalAlign: -2,
+                                fontSize: 20,
+                            }}
+                        />{" "}
+                        {aquarium.name}
+                    </Typography>
+                    <Typography
+                        variant="h4"
+                        noWrap>
+                        <SquareFootIcon
+                            sx={{
+                                verticalAlign: -2,
+                                fontSize: 22,
+                            }}
+                        />{" "}
+                        {aquarium.length}"x
+                        {aquarium.width}"x{aquarium.height}" (
+                        {(
+                            (aquarium.length *
+                                aquarium.width *
+                                aquarium.height) /
+                            231
+                        ).toFixed(2)}{" "}
+                        gallons)
+                    </Typography>
+                    <Typography
+                        variant="h4"
+                        noWrap>
+                        <CommentIcon
+                            sx={{
+                                verticalAlign: -2,
+                                fontSize: 20,
+                            }}
+                        />{" "}
+                        {aquarium.note}
+                    </Typography>
+                    <br />
+                    <Typography variant="h6">
+                        <img
+                            src={aquarium.image_url}
+                            width={400}
+                            maxheight="true"
+                            className="drop"></img>
+                    </Typography>
+                </Paper>
                 <br />
                 <Typography variant="h4">
                     Current Organisms and Items in Aquarium
                 </Typography>
-                {products.map((item) => {
-                    return (
-                        <Typography variant="h5">
-                            <ul key={item.id}>
-                                <li>
-                                    {item.productType}: {item.typeDescription},
-                                    Cost: ${item.cost}
-                                </li>
-                            </ul>
-                        </Typography>
-                    );
-                })}
+                <br />
+                <Paper
+                    elevation={12}
+                    sx={{ p: 3, backgroundColor: "#0F506E", color: "white" }}>
+                    {products.map((item) => {
+                        return (
+                            <Typography variant="h5">
+                                <ul key={item.id}>
+                                    <li>
+                                        {item.productType}:{" "}
+                                        {item.typeDescription}, Cost: $
+                                        {item.cost}
+                                    </li>
+                                </ul>
+                            </Typography>
+                        );
+                    })}
+                </Paper>
+                <br />
+                <br />
+                <Button
+                    onClick={() => history.push("/user")}
+                    sx={{
+                        textTransform: "none",
+                        backgroundColor: "#EAB06E",
+                        color: "black",
+
+                        ":hover": {
+                            bgcolor: "#F2DDA6",
+                            color: "black",
+                        },
+                    }}
+                    style={{
+                        maxWidth: "400px",
+                        maxHeight: "100px",
+                        minWidth: "400px",
+                        minHeight: "10px",
+                        lineHeight: "50px",
+                        fontSize: "30px",
+                    }}>
+                    Return to Dashboard
+                </Button>
+                <br />
                 <br />
                 <Button
                     onClick={() => editAquarium(aquarium)}
@@ -133,6 +172,14 @@ const Aquarium = () => {
                             bgcolor: "#F2DDA6",
                             color: "black",
                         },
+                    }}
+                    style={{
+                        maxWidth: "400px",
+                        maxHeight: "100px",
+                        minWidth: "400px",
+                        minHeight: "10px",
+                        lineHeight: "50px",
+                        fontSize: "30px",
                     }}>
                     Edit Aquarium
                 </Button>
@@ -149,6 +196,14 @@ const Aquarium = () => {
                             bgcolor: "#F2DDA6",
                             color: "black",
                         },
+                    }}
+                    style={{
+                        maxWidth: "400px",
+                        maxHeight: "100px",
+                        minWidth: "400px",
+                        minHeight: "10px",
+                        lineHeight: "50px",
+                        fontSize: "30px",
                     }}>
                     Delete Aquarium
                 </Button>

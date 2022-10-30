@@ -25,7 +25,7 @@ const EditAquarium = () => {
     const [height, setHeight] = useState(aquarium.height);
     const [note, setNote] = useState(aquarium.note);
     const [image_url, setImage_url] = useState(aquarium.image_url);
-    const [productType, setProductType] = useState("livestock");
+    const [productType, setProductType] = useState("Livestock");
     const [typeDescription, setTypeDescription] = useState("");
     const [cost, setCost] = useState(0);
     const [products, setProducts] = useState(product);
@@ -111,7 +111,7 @@ const EditAquarium = () => {
             ...newProducts,
             { productId, productType, typeDescription, cost },
         ]);
-        setProductType("livestock");
+        setProductType("Livestock");
         setTypeDescription("");
         setCost(0);
     };
@@ -265,8 +265,8 @@ const EditAquarium = () => {
                                 color: "black",
                             },
                         }}
-                        value="livestock">
-                        livestock
+                        value="Livestock">
+                        Livestock
                     </MenuItem>
                     <MenuItem
                         style={{
@@ -279,8 +279,8 @@ const EditAquarium = () => {
                                 color: "black",
                             },
                         }}
-                        value="plant">
-                        plant
+                        value="Plant">
+                        Plant
                     </MenuItem>
                     <MenuItem
                         style={{
@@ -293,8 +293,8 @@ const EditAquarium = () => {
                                 color: "black",
                             },
                         }}
-                        value="rock">
-                        rock
+                        value="Rock">
+                        Rock
                     </MenuItem>
                     <MenuItem
                         style={{
@@ -307,8 +307,8 @@ const EditAquarium = () => {
                                 color: "black",
                             },
                         }}
-                        value="driftwood">
-                        driftwood
+                        value="Driftwood">
+                        Driftwood
                     </MenuItem>
                     <MenuItem
                         style={{
@@ -321,8 +321,8 @@ const EditAquarium = () => {
                                 color: "black",
                             },
                         }}
-                        value="substrate">
-                        substrate
+                        value="Substrate">
+                        Substrate
                     </MenuItem>
                 </Select>
 
@@ -443,30 +443,6 @@ const EditAquarium = () => {
                 <br />
                 <br />
                 <Button
-                    onClick={(e) => editAquarium(e)}
-                    sx={{
-                        textTransform: "none",
-                        backgroundColor: "#EAB06E",
-                        color: "black",
-
-                        ":hover": {
-                            bgcolor: "#F2DDA6",
-                            color: "black",
-                        },
-                    }}
-                    style={{
-                        maxWidth: "400px",
-                        maxHeight: "100px",
-                        minWidth: "400px",
-                        minHeight: "10px",
-                        lineHeight: "50px",
-                        fontSize: "30px",
-                    }}>
-                    Finish Editing Aquarium
-                </Button>
-                <br />
-                <br />
-                <Button
                     onClick={() => deleteAquarium(aquarium)}
                     sx={{
                         textTransform: "none",
@@ -487,6 +463,30 @@ const EditAquarium = () => {
                         fontSize: "30px",
                     }}>
                     Delete Aquarium
+                </Button>
+                <br />
+                <br />
+                <Button
+                    onClick={(e) => editAquarium(e)}
+                    sx={{
+                        textTransform: "none",
+                        backgroundColor: "#EAB06E",
+                        color: "black",
+
+                        ":hover": {
+                            bgcolor: "#F2DDA6",
+                            color: "black",
+                        },
+                    }}
+                    style={{
+                        maxWidth: "400px",
+                        maxHeight: "100px",
+                        minWidth: "400px",
+                        minHeight: "10px",
+                        lineHeight: "50px",
+                        fontSize: "30px",
+                    }}>
+                    Finish Editing Aquarium
                 </Button>
             </Container>
         </>
