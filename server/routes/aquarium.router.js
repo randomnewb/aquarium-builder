@@ -5,11 +5,11 @@ const pool = require("../modules/pool");
 const router = express.Router();
 
 // GET Route
-// Add in something to only get logged in user's aquariums
 router.get("/", (req, res) => {
     if (req.isAuthenticated()) {
         const sql = `SELECT * FROM "aquarium"
-        WHERE "user_id" = $1;
+        WHERE "user_id" = $1
+        ORDER BY "id" DESC;
         `;
         pool.query(sql, [req.user.id])
             .then((result) => {

@@ -331,7 +331,7 @@ const CreateAquarium = () => {
                     </Typography>
                     {products.map((item) => {
                         return (
-                            <ul key={item.id}>
+                            <ul key={item.productId}>
                                 <li>
                                     <Button
                                         onClick={(e) =>
