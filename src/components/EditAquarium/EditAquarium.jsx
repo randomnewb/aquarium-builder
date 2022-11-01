@@ -9,7 +9,6 @@ import "../../css/PlainTextField.css";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import { array } from "prop-types";
 
 const EditAquarium = () => {
     const dispatch = useDispatch();

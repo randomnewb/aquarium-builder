@@ -57,8 +57,8 @@ CREATE TABLE "aquarium_schedule" (
 --Sample aquariums
 
 INSERT INTO "aquarium" ("user_id", "name", "length", "width", "height", "note", "image_url")
-VALUES (1, 'Shrimp Tank', 8, 8, 8, 'A nano tank for nano livestock.', 'https://unsplash.com/photos/kIrSG5VDdl8/download?ixid=MnwxMjA3fDB8MXxjb2xsZWN0aW9ufDd8Njc1OTY4NjB8fHx8fDJ8fDE2NjYxMzkwNDc&force=true&w=640'), 
-(1, 'Fishy Paradise', 12, 12, 6, 'A longer, more shallow tank with more surface area for gas exchange', 'https://unsplash.com/photos/46v8clmNjY8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8N3x8YXF1YXJpdW18ZW58MHx8fHwxNjY2MjI3Nzg2&force=true&w=640');
+VALUES (1, 'Gudgeon Town', 30, 13, 13, 'Pick up plants and add them to this tank.', 'https://res.cloudinary.com/dartlv0ee/image/upload/v1667316719/IMG_20221031_181229_r6xnbv.jpg'), 
+(1, 'Shrimp Paradise', 14, 9, 10, 'A haven for shrimp with lots of rotala', 'https://res.cloudinary.com/dartlv0ee/image/upload/v1667316717/IMG_20221031_181246_x2uuu0.jpg');
 
 --Define the product types that users can add to and populate their aquariums
 
@@ -68,7 +68,8 @@ VALUES ('livestock'), ('plant'), ('rock'), ('driftwood'), ('substrate')
 
 --Some example products
 INSERT INTO "product" ("aquarium_id", "description", "cost", "product_type_id")
-VALUES (1, 'Anubias nana petite', 15, 2), (1, 'Seiryu', 10, 3), (2, 'Sparkling Gourami', 15, 1)
+VALUES (1, 'Anubias nana petite', 25, 2), (1, 'Seiryu', 15, 3), (1, 'Peacock Gudgeon', 12, 1), (1, 'Pothos', 10, 2),
+(2, 'Neocaridina (yellow)', 20, 1), (2, 'Rotala', 10, 2)
 ;
 
 --Define the schedule types that users can choose from when creating reminders and schedules
