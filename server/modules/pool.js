@@ -10,7 +10,7 @@ const url = require("url");
 
 let config = {};
 
-console.log("Update 6:27PM");
+console.log("Update 6:34PM", "2nd commit");
 
 if (process.env.DATABASE_URL) {
     // Heroku gives a url, not a connection object
