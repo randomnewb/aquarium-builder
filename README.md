@@ -1,12 +1,12 @@
-# Prime Solo Project Starting Repo
+# Aquarium Builder
 
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+A tool for hobbyists to help them with the organization of the different components of an aquarium. Create, view, modify, and delete aquariums that are set up in the real world or determine if a dream tank is viable before setting it up.
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
+## Built With
 
-## Use the Template for This Repository (Don't Clone)
-
--   Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account. Make the project `PUBLIC`!
+-   React (Redux and Sagas)
+-   Node.js, Express.js, PostgreSQL
+-   MaterialUI
 
 ## Prerequisites
 
@@ -38,10 +38,10 @@ If you would like to name your database something else, you will need to change 
     SERVER_SESSION_SECRET=superDuperSecret
     ```
     While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
--   [x] Start postgres if not running already by using `brew services start postgresql`
--   [x] Run `npm run server`
--   [x] Run `npm run client`
--   [x] Navigate to `localhost:3000`
+-   Start postgres if not running already by using `brew services start postgresql`
+-   Run `npm run server`
+-   Run `npm run client`
+-   Navigate to `localhost:3000`
 
 ## Debugging
 
@@ -76,13 +76,13 @@ Before pushing to Heroku, run `npm run build` in terminal. This will create a bu
 -   Run `npm start`
 -   Navigate to `localhost:5000`
 
-## Lay of the Land
+<!-- ## Lay of the Land
 
 There are a few videos linked below that show a walkthrough the client and sever setup to help acclimatize to the boilerplate. Please take some time to watch the videos in order to get a better understanding of what the boilerplate is like.
 
 -   [Initial Set](https://vimeo.com/453297271)
 -   [Server Walkthrough](https://vimeo.com/453297212)
--   [Client Walkthrough](https://vimeo.com/453297124)
+-   [Client Walkthrough](https://vimeo.com/453297124) -->
 
 Directory Structure:
 
@@ -114,7 +114,3 @@ This code is also heavily commented. We recommend reading through the comments, 
 1. Create the necessary tables
 1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
 1. In the deploy section, select manual deploy
-
-## Update Documentation
-
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
