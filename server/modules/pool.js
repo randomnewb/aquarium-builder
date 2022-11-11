@@ -10,6 +10,8 @@ const url = require("url");
 
 let config = {};
 
+console.log("Update 6:27PM");
+
 if (process.env.DATABASE_URL) {
     // Heroku gives a url, not a connection object
     // https://github.com/brianc/node-pg-pool

@@ -13,6 +13,7 @@ import LabelIcon from "@mui/icons-material/Label";
 import CommentIcon from "@mui/icons-material/Comment";
 // import "./PlainButton.css";
 // import drop from "./drop.css";
+// import "./IconStyle.css";
 
 // Import useHistory so we can change view on click
 import { useHistory } from "react-router-dom";
@@ -129,7 +130,7 @@ function UserPage() {
                                         <SquareFootIcon
                                             sx={{
                                                 verticalAlign: -2,
-                                                fontSize: 22,
+                                                fontSize: 20,
                                             }}
                                         />{" "}
                                         {aquarium.length}"x
