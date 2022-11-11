@@ -16,7 +16,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import AboutPage from "../AboutPage/AboutPage";
 import UserPage from "../UserPage/UserPage";
 // import InfoPage from "../InfoPage/InfoPage";
-import LandingPage from "../LandingPage/LandingPage";
+// import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 
@@ -108,8 +108,8 @@ function App() {
                             // redirect them to the /user page
                             <Redirect to="/user" />
                         ) : (
-                            // Otherwise, show the Landing page
-                            <LandingPage />
+                            // Otherwise, show the login page
+                            <LoginPage />
                         )}
                     </Route>
                     {/* Add Aquarium Route with a specific id, the specific one the user wants to view */}
