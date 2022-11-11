@@ -25,7 +25,7 @@ function AboutPage() {
                 <Typography variant="h5">
                     <ul>
                         <li> React, Redux, Sagas</li>
-                        <li> Express.js, PostgresSQL</li>
+                        <li> Node.js, Express.js, PostgresSQL</li>
                         <li> Styled with MaterialUI</li>
                     </ul>
                 </Typography>
