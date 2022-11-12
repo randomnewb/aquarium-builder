@@ -8,6 +8,24 @@ A tool for hobbyists to help them with the organization of the different compone
 -   Node.js, Express.js, PostgreSQL
 -   MaterialUI
 
+## Screenshots
+
+The user's Dashboard that displays aquariums the user has built.
+
+![Dashboard](documentation/images/aqua_1.png)
+
+Users can see a Detail View of their aquarium.
+
+![Detail](documentation/images/aqua_2.png)
+
+Users can Create a new aquarium, entering in the different parameters.
+
+![Create Basic](documentation/images/aqua_3.png)
+
+Users can also add various items to those aquariums.
+
+![Create Extra](documentation/images/aqua_4.png)
+
 ## Prerequisites
 
 Before you get started, make sure you have the following software installed on your computer:
