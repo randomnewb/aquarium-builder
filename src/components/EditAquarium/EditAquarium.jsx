@@ -78,6 +78,11 @@ const EditAquarium = () => {
             },
         });
 
+        dispatch({
+            type: "SET_LAST_PRODUCT_ID",
+            payload: { id: productId + 1 },
+        });
+
         if (
             confirm(
                 "Are you sure you want to complete the aquarium editing process?"
@@ -185,7 +190,6 @@ const EditAquarium = () => {
                     value={length}
                     onChange={(e) => setLength(e.target.value)}
                 />
-
                 <br />
                 <TextField
                     variant="filled"
@@ -323,7 +327,6 @@ const EditAquarium = () => {
                         Substrate
                     </MenuItem>
                 </Select>
-
                 <br />
                 <h3>
                     Then, type in the name and cost (if any). Next, choose
@@ -352,6 +355,7 @@ const EditAquarium = () => {
                     value={cost}
                     onChange={(e) => setCost(e.target.value)}
                 />
+                {/* Last productId is: {productId} */}
                 <br />
                 <br />
                 <Button
@@ -406,7 +410,7 @@ const EditAquarium = () => {
                                         }}>
                                         Remove
                                     </Button>
-                                    {/* {item.id} */}
+                                    {/* Item ID: {item.id} */}
                                     Type: {item.productType}, Label:{" "}
                                     {item.typeDescription}, Cost: ${item.cost}
                                 </li>
