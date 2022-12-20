@@ -50,8 +50,8 @@ If you would like to name your database something else, you will need to change 
 
 ## Development Setup Instructions
 
--   [x] Run `npm install`
--   [x] Create a `.env` file at the root of the project and paste this line into the file:
+-   Run `npm install`
+-   Create an `.env` file at the root of the project and paste this line into the file:
     ```
     SERVER_SESSION_SECRET=superDuperSecret
     ```

@@ -1,3 +1,11 @@
+/*
+
+    This view displays the details of the chosen aquarium.
+    Users can see the basic details as well as the list of livestock/items (products).
+    Users have access to several actions: Return to Dashboard, Edit Aquarium, Delete Aquarium
+
+*/
+
 // useEffect for displaying our specific aquarium on page load
 import React, { useEffect } from "react";
 

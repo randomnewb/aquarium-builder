@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import axios from "axios";
 import Button from "@mui/material/Button";
 import { Typography, TextField } from "@mui/material";
 import { Container } from "@mui/system";

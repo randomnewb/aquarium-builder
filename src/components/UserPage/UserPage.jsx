@@ -1,6 +1,6 @@
 // Import useEffect to show user's aquariums on page load
 import React, { useEffect } from "react";
-import LogOutButton from "../LogOutButton/LogOutButton";
+// import LogOutButton from "../LogOutButton/LogOutButton";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Card from "@mui/material/Card";
@@ -46,7 +46,7 @@ function UserPage() {
                 className="container"
                 container
                 spacing={2}>
-                <Container maxWidth>
+                <Container maxWidth="true">
                     <Typography
                         variant="h4"
                         textAlign="center"
@@ -92,14 +92,11 @@ function UserPage() {
                         </Typography>
                     )}
                 </Container>
-                {/* <p>Your ID is: {user.id}</p> */}
-                {/* <LogOutButton className="btn" /> */}
-                {/* Aquariums will be displayed here along with create aquarium button */}
 
-                {/* {JSON.stringify(aquariums)}; */}
                 {aquariums.map((aquarium) => {
                     return (
                         <Grid
+                            key={aquarium.id}
                             item
                             xs={12}
                             sm={6}
@@ -107,7 +104,6 @@ function UserPage() {
                             marginTop={2}
                             paddingRight={2}>
                             <Card
-                                key={aquarium.id}
                                 sx={{
                                     backgroundColor: "#0F506E",
                                     color: "white",
