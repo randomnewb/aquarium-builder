@@ -17,7 +17,7 @@ const CreateAquarium = () => {
     const [height, setHeight] = useState(0);
     const [note, setNote] = useState("");
     const [image_url, setImage_url] = useState("");
-
+    const [loading, setLoading] = useState(false);
     // Product type
     const [productType, setProductType] = useState("Livestock");
 
@@ -31,6 +31,26 @@ const CreateAquarium = () => {
 
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const uploadImage = async (e) => {
+        const files = e.target.files;
+        const data = new FormData();
+        data.append("file", files[0]);
+        data.append("upload_preset", "images");
+        setLoading(true);
+
+        const res = await fetch(
+            "https://api.cloudinary.com/v1_1/dartlv0ee/image/upload",
+            {
+                method: "POST",
+                body: data,
+            }
+        );
+
+        const file = await res.json();
+        console.log(file);
+        setImage_url(file.secure_url);
+    };
 
     const newAquarium = (e) => {
         e.preventDefault();
@@ -167,11 +187,11 @@ const CreateAquarium = () => {
                     variant="filled"
                     fullWidth
                     className="textfield"
-                    label="Input the complete image url"
-                    type="text"
+                    // label="Input the complete image url"
+                    type="file"
                     name="image_url"
-                    value={image_url}
-                    onChange={(e) => setImage_url(e.target.value)}
+                    // value={image_url}
+                    onChange={uploadImage}
                 />
                 <br />
 

@@ -31,6 +31,7 @@ const EditAquarium = () => {
     const { id } = useParams();
     const [deleteProducts, setDeleteProducts] = useState([]);
     const [newProducts, setNewProducts] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         dispatch({
@@ -59,6 +60,26 @@ const EditAquarium = () => {
         setProducts(product);
         setProductId(lastId.id);
     }, [aquarium, product]);
+
+    const uploadImage = async (e) => {
+        const files = e.target.files;
+        const data = new FormData();
+        data.append("file", files[0]);
+        data.append("upload_preset", "images");
+        setLoading(true);
+
+        const res = await fetch(
+            "https://api.cloudinary.com/v1_1/dartlv0ee/image/upload",
+            {
+                method: "POST",
+                body: data,
+            }
+        );
+
+        const file = await res.json();
+        console.log(file);
+        setImage_url(file.secure_url);
+    };
 
     const editAquarium = (e) => {
         e.preventDefault();
@@ -230,11 +251,11 @@ const EditAquarium = () => {
                     variant="filled"
                     fullWidth
                     className="textfield"
-                    label="Input the complete image url"
-                    type="text"
+                    // label="Input the complete image url"
+                    type="file"
                     name="image_url"
-                    value={image_url}
-                    onChange={(e) => setImage_url(e.target.value)}
+                    // value={image_url}
+                    onChange={uploadImage}
                 />
                 <h3>
                     If you would like to add an organism or item, please select
