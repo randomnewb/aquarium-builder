@@ -24,6 +24,8 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import Aquarium from "../Aquarium/Aquarium";
 import CreateAquarium from "../CreateAquarium/CreateAquarium";
 import EditAquarium from "../EditAquarium/EditAquarium";
+import Profile from "../Profile/Profile";
+import EditProfile from "../EditProfile/EditProfile";
 
 import "./App.css";
 
@@ -127,6 +129,16 @@ function App() {
                         exact
                         path="/edit/:id">
                         <EditAquarium />
+                    </ProtectedRoute>
+                    <ProtectedRoute
+                        exact
+                        path="/profile">
+                        <Profile />
+                    </ProtectedRoute>
+                    <ProtectedRoute
+                        exact
+                        path="/profile/edit/:id">
+                        <EditProfile />
                     </ProtectedRoute>
                     {/* If none of the other routes matched, we will show a 404. */}
                     <Route>

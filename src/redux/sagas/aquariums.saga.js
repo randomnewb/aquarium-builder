@@ -69,7 +69,6 @@ function* deleteAquarium(action) {
 }
 
 function* updateAquarium(action) {
-    console.log("Action is", action);
     try {
         yield axios.put(`/api/aquarium/${action.payload.id}`, action.payload);
         yield put({

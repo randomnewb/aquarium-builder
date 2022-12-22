@@ -52,7 +52,11 @@ function Nav() {
                             to="/setup">
                             Create
                         </Link>
-
+                        <Link
+                            className="navLink"
+                            to="/profile">
+                            Profile
+                        </Link>
                         {/* <Link
                             className="navLink"
                             to="/info">

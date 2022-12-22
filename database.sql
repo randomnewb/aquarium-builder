@@ -2,7 +2,13 @@
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+    "password" VARCHAR (1000) NOT NULL,
+	"favorite_plant" VARCHAR (255),
+	"favorite_animal" VARCHAR (255),
+	"aquascaping_style" VARCHAR (255),
+	"years_hobby" INT,
+	"avatar" VARCHAR (1000),
+	"description" VARCHAR (1000)
 );
 
 --REGISTER A USER ACCOUNT BEFORE CREATING OR INSERTING ANYTHING ELSE BELOW
