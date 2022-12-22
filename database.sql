@@ -6,7 +6,7 @@ CREATE TABLE "user" (
 	"favorite_plant" VARCHAR (255),
 	"favorite_animal" VARCHAR (255),
 	"aquascaping_style" VARCHAR (255),
-	"years_hobby" INT,
+	"years_hobby" NUMERIC,
 	"avatar" VARCHAR (1000),
 	"description" VARCHAR (1000)
 );
