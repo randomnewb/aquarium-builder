@@ -17,8 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 // Import useHistory so we can go back /home when we're done
 import { useParams, useHistory } from "react-router-dom";
 
-import Button from "@mui/material/Button";
-import { Typography, Paper } from "@mui/material";
+import { Typography, Paper, Button } from "@mui/material";
 import { Container } from "@mui/system";
 import "../../css/PlainTextField.css";
 import SquareFootIcon from "@mui/icons-material/SquareFoot";
@@ -65,12 +64,8 @@ const Aquarium = () => {
     return (
         <>
             <Container>
-                <Typography variant="h4">Aquarium Information</Typography>
-                <br />
-                <Paper
-                    elevation={12}
-                    sx={{ p: 3, backgroundColor: "#0F506E", color: "white" }}>
-                    {/* {JSON.stringify(products)} */}
+                <Typography variant="header">Aquarium Information</Typography>
+                <Paper elevation={12}>
                     <Typography
                         variant="h4"
                         noWrap>
@@ -88,7 +83,7 @@ const Aquarium = () => {
                         <SquareFootIcon
                             sx={{
                                 verticalAlign: -2,
-                                fontSize: 22,
+                                fontSize: 20,
                             }}
                         />{" "}
                         {aquarium.length}"x
@@ -122,13 +117,11 @@ const Aquarium = () => {
                     </Typography>
                 </Paper>
                 <br />
-                <Typography variant="h4">
+                <Typography variant="header">
                     Current Organisms and Items in Aquarium
                 </Typography>
                 <br />
-                <Paper
-                    elevation={12}
-                    sx={{ p: 3, backgroundColor: "#0F506E", color: "white" }}>
+                <Paper elevation={12}>
                     {products.map((item) => {
                         return (
                             <Typography variant="h5">
@@ -145,74 +138,17 @@ const Aquarium = () => {
                 </Paper>
                 <br />
                 <br />
-                <Button
-                    onClick={() => history.push("/user")}
-                    sx={{
-                        textTransform: "none",
-                        backgroundColor: "#EAB06E",
-                        color: "black",
-
-                        ":hover": {
-                            bgcolor: "#F2DDA6",
-                            color: "black",
-                        },
-                    }}
-                    style={{
-                        maxWidth: "400px",
-                        maxHeight: "100px",
-                        minWidth: "400px",
-                        minHeight: "10px",
-                        lineHeight: "50px",
-                        fontSize: "30px",
-                    }}>
+                <Button onClick={() => history.push("/user")}>
                     Return to Dashboard
                 </Button>
                 <br />
                 <br />
-                <Button
-                    onClick={() => editAquarium(aquarium)}
-                    sx={{
-                        textTransform: "none",
-                        backgroundColor: "#EAB06E",
-                        color: "black",
-
-                        ":hover": {
-                            bgcolor: "#F2DDA6",
-                            color: "black",
-                        },
-                    }}
-                    style={{
-                        maxWidth: "400px",
-                        maxHeight: "100px",
-                        minWidth: "400px",
-                        minHeight: "10px",
-                        lineHeight: "50px",
-                        fontSize: "30px",
-                    }}>
+                <Button onClick={() => editAquarium(aquarium)}>
                     Edit Aquarium
                 </Button>
                 <br />
                 <br />
-                <Button
-                    onClick={() => deleteAquarium(aquarium)}
-                    sx={{
-                        textTransform: "none",
-                        backgroundColor: "#EAB06E",
-                        color: "black",
-
-                        ":hover": {
-                            bgcolor: "#F2DDA6",
-                            color: "black",
-                        },
-                    }}
-                    style={{
-                        maxWidth: "400px",
-                        maxHeight: "100px",
-                        minWidth: "400px",
-                        minHeight: "10px",
-                        lineHeight: "50px",
-                        fontSize: "30px",
-                    }}>
+                <Button onClick={() => deleteAquarium(aquarium)}>
                     Delete Aquarium
                 </Button>
             </Container>

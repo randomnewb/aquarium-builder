@@ -1,25 +1,16 @@
+import { blue } from "@mui/material/colors";
+
 const defaultTheme = {
-    palette: {
-        primary: {
-            main: "#ead4aa",
-        },
-        secondary: {
-            main: "#ead4aa",
-        },
-        normal: {
-            main: "#ead4aa",
-        },
-        woodcutting: {
-            main: "#b86f50",
-        },
-        mining: {
-            main: "#c0cbdc",
-        },
-        attacking: {
-            main: "#e43b44",
-        },
-    },
     components: {
+        MuiPaper: {
+            defaultProps: {
+                style: {
+                    backgroundColor: "#0F506E",
+                    color: "#FFFFFF",
+                    padding: 30,
+                },
+            },
+        },
         MuiOutlinedInput: {
             defaultProps: {
                 style: {
@@ -35,52 +26,34 @@ const defaultTheme = {
             },
         },
         MuiTypography: {
-            defaultProps: {
-                color: "#000000",
-                // style: {
-                //   color: "#FFFFFF",
-                // },
-            },
-        },
-        MuiIconButton: {
-            defaultProps: {
-                style: {
-                    "&:hover": {
-                        color: "#181425",
-                        backgroundColor: "#e4a672",
-                    },
-                },
-            },
-        },
-        MuiButton: {
-            defaultProps: {
-                variant: "contained",
-                style: {
-                    "&:hover": {
-                        color: "#181425",
-                        backgroundColor: "#e4a672",
-                    },
-                },
-            },
+            defaultProps: {},
             variants: [
                 {
-                    props: { variant: "blue" },
+                    props: { variant: "header" },
                     style: {
-                        textTransform: "none",
-                        border: `2px dashed blue`,
-                        "&:hover": {
-                            color: "#181425",
-                            backgroundColor: "#00ff00",
-                        },
+                        fontSize: "25px",
+                        padding: 50,
                     },
                 },
+            ],
+        },
+        MuiButton: {
+            defaultProps: {},
+            variants: [
                 {
-                    props: { variant: "red" },
+                    props: { variant: "card" },
                     style: {
-                        border: `4px dashed red`,
+                        maxWidth: "150px",
+                        maxHeight: "100px",
+                        minWidth: "150px",
+                        minHeight: "75px",
+                        fontSize: "25px",
+                        textTransform: "none",
+                        backgroundColor: "#EAB06E",
+                        color: "#000000",
                         "&:hover": {
-                            color: "#181425",
-                            backgroundColor: "#00bb00",
+                            backgroundColor: "#F2DDA6",
+                            color: "black",
                         },
                     },
                 },

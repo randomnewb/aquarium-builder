@@ -1,25 +1,20 @@
 // Import useEffect to show user's aquariums on page load
 import React, { useEffect } from "react";
-// import LogOutButton from "../LogOutButton/LogOutButton";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import { Typography } from "@mui/material";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import {
+    Button,
+    Grid,
+    Card,
+    CardActions,
+    CardContent,
+    Typography,
+} from "@mui/material/";
+
 import { Container } from "@mui/system";
 import SquareFootIcon from "@mui/icons-material/SquareFoot";
 import LabelIcon from "@mui/icons-material/Label";
 import CommentIcon from "@mui/icons-material/Comment";
-// import "./PlainButton.css";
-// import drop from "./drop.css";
-// import "./IconStyle.css";
-
-// Import useHistory so we can change view on click
-import { useHistory } from "react-router-dom";
-
-// Import useDispatch so that we can click on specific aquariums to view their detail
-import { useSelector, useDispatch } from "react-redux";
 
 function UserPage() {
     const history = useHistory();
@@ -28,6 +23,7 @@ function UserPage() {
 
     // Pull all the user's aquariums from the store
     const aquariums = useSelector((store) => store.aquariums.allAquariums);
+    const user = useSelector((store) => store.user);
 
     // FETCH our aquariums on load
     useEffect(() => {
@@ -38,8 +34,6 @@ function UserPage() {
         history.push(`/aquarium/${aquariumToDisplay.id}`);
     };
 
-    // this component doesn't do much to start, just renders some user reducer info to the DOM
-    const user = useSelector((store) => store.user);
     return (
         <div>
             <Grid
@@ -48,17 +42,19 @@ function UserPage() {
                 spacing={2}>
                 <Container maxWidth="true">
                     <Typography
-                        variant="h4"
-                        textAlign="center"
-                        sx={{ fontFamily: "Rubik" }}>
+                        variant="header"
+                        // textAlign="center"
+                        // sx={{ fontFamily: "Rubik" }}
+                    >
                         Welcome, {user.username}!
                     </Typography>
                     <br />
                     {aquariums.length === 0 && (
                         <Typography
-                            variant="h3"
-                            textAlign="center"
-                            sx={{ fontFamily: "Rubik" }}>
+                            variant="header"
+                            // textAlign="center"
+                            // sx={{ fontFamily: "Rubik" }}
+                        >
                             There are currently no aquariums.
                         </Typography>
                     )}
@@ -163,20 +159,10 @@ function UserPage() {
                                 </CardContent>
                                 <CardActions sx={{ justifyContent: "center" }}>
                                     <Button
+                                        variant="card"
                                         onClick={(e) =>
                                             viewAquariumDetail(aquarium)
-                                        }
-                                        // className="button"
-                                        sx={{
-                                            textTransform: "none",
-                                            backgroundColor: "#EAB06E",
-                                            color: "black",
-
-                                            ":hover": {
-                                                bgcolor: "#F2DDA6",
-                                                color: "black",
-                                            },
-                                        }}>
+                                        }>
                                         View Details
                                     </Button>
                                 </CardActions>
