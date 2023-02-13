@@ -143,24 +143,7 @@ const Profile = () => {
             <br />
             <Button
                 onClick={(e) => updateProfile(e)}
-                sx={{
-                    textTransform: "none",
-                    backgroundColor: "#EAB06E",
-                    color: "black",
-
-                    ":hover": {
-                        bgcolor: "#F2DDA6",
-                        color: "black",
-                    },
-                }}
-                style={{
-                    maxWidth: "400px",
-                    maxHeight: "100px",
-                    minWidth: "400px",
-                    minHeight: "10px",
-                    lineHeight: "50px",
-                    fontSize: "30px",
-                }}>
+                variant="action">
                 Finish Editing Profile
             </Button>
         </Container>

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import Button from "@mui/material/Button";
-import { Typography, TextField } from "@mui/material";
+import { Typography, TextField, Button } from "@mui/material";
 import { Container } from "@mui/system";
 import "../../css/PlainTextField.css";
 import InputLabel from "@mui/material/InputLabel";
@@ -380,25 +379,8 @@ const EditAquarium = () => {
                 <br />
                 <br />
                 <Button
-                    onClick={addSingleItem}
-                    sx={{
-                        textTransform: "none",
-                        backgroundColor: "#EAB06E",
-                        color: "black",
-
-                        ":hover": {
-                            bgcolor: "#F2DDA6",
-                            color: "black",
-                        },
-                    }}
-                    style={{
-                        maxWidth: "200px",
-                        maxHeight: "50px",
-                        minWidth: "200px",
-                        minHeight: "50px",
-                        lineHeight: "25px",
-                        fontSize: "20px",
-                    }}>
+                    variant="action"
+                    onClick={addSingleItem}>
                     Add Organism/Item
                 </Button>
                 <h3>
@@ -416,19 +398,10 @@ const EditAquarium = () => {
                             <ul key={item.productId}>
                                 <li>
                                     <Button
+                                        variant="list"
                                         onClick={(e) =>
                                             deleteProductItem(e, item)
-                                        }
-                                        sx={{
-                                            textTransform: "none",
-                                            backgroundColor: "#EAB06E",
-                                            color: "black",
-
-                                            ":hover": {
-                                                bgcolor: "#F2DDA6",
-                                                color: "black",
-                                            },
-                                        }}>
+                                        }>
                                         Remove
                                     </Button>
                                     {/* Item ID: {item.id} */}
@@ -443,72 +416,21 @@ const EditAquarium = () => {
                 <br />
                 <Button
                     onClick={(e) => previousPage(e)}
-                    sx={{
-                        textTransform: "none",
-                        backgroundColor: "#EAB06E",
-                        color: "black",
-
-                        ":hover": {
-                            bgcolor: "#F2DDA6",
-                            color: "black",
-                        },
-                    }}
-                    style={{
-                        maxWidth: "400px",
-                        maxHeight: "100px",
-                        minWidth: "400px",
-                        minHeight: "10px",
-                        lineHeight: "50px",
-                        fontSize: "30px",
-                    }}>
+                    variant="action">
                     Cancel Editing
                 </Button>
                 <br />
                 <br />
                 <Button
                     onClick={() => deleteAquarium(aquarium)}
-                    sx={{
-                        textTransform: "none",
-                        backgroundColor: "#EAB06E",
-                        color: "black",
-
-                        ":hover": {
-                            bgcolor: "#F2DDA6",
-                            color: "black",
-                        },
-                    }}
-                    style={{
-                        maxWidth: "400px",
-                        maxHeight: "100px",
-                        minWidth: "400px",
-                        minHeight: "10px",
-                        lineHeight: "50px",
-                        fontSize: "30px",
-                    }}>
+                    variant="action">
                     Delete Aquarium
                 </Button>
                 <br />
                 <br />
                 <Button
                     onClick={(e) => editAquarium(e)}
-                    sx={{
-                        textTransform: "none",
-                        backgroundColor: "#EAB06E",
-                        color: "black",
-
-                        ":hover": {
-                            bgcolor: "#F2DDA6",
-                            color: "black",
-                        },
-                    }}
-                    style={{
-                        maxWidth: "400px",
-                        maxHeight: "100px",
-                        minWidth: "400px",
-                        minHeight: "10px",
-                        lineHeight: "50px",
-                        fontSize: "30px",
-                    }}>
+                    variant="action">
                     Finish Editing Aquarium
                 </Button>
             </Container>

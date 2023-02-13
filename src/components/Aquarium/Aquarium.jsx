@@ -138,17 +138,23 @@ const Aquarium = () => {
                 </Paper>
                 <br />
                 <br />
-                <Button onClick={() => history.push("/user")}>
+                <Button
+                    variant="action"
+                    onClick={() => history.push("/user")}>
                     Return to Dashboard
                 </Button>
                 <br />
                 <br />
-                <Button onClick={() => editAquarium(aquarium)}>
+                <Button
+                    variant="action"
+                    onClick={() => editAquarium(aquarium)}>
                     Edit Aquarium
                 </Button>
                 <br />
                 <br />
-                <Button onClick={() => deleteAquarium(aquarium)}>
+                <Button
+                    variant="action"
+                    onClick={() => deleteAquarium(aquarium)}>
                     Delete Aquarium
                 </Button>
             </Container>

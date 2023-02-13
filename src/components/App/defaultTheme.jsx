@@ -57,6 +57,35 @@ const defaultTheme = {
                         },
                     },
                 },
+                {
+                    props: { variant: "action" },
+                    style: {
+                        maxWidth: "400px",
+                        maxHeight: "100px",
+                        minWidth: "300px",
+                        minHeight: "75px",
+                        fontSize: "25px",
+                        textTransform: "none",
+                        backgroundColor: "#EAB06E",
+                        color: "#000000",
+                        "&:hover": {
+                            backgroundColor: "#F2DDA6",
+                            color: "black",
+                        },
+                    },
+                },
+                {
+                    props: { variant: "list" },
+                    style: {
+                        textTransform: "none",
+                        backgroundColor: "#EAB06E",
+                        color: "black",
+                        "&:hover": {
+                            backgroundColor: "#F2DDA6",
+                            color: "black",
+                        },
+                    },
+                },
             ],
         },
     },

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import Button from "@mui/material/Button";
-import { Typography, TextField } from "@mui/material";
+import { Typography, TextField, Button } from "@mui/material";
 import { Container } from "@mui/system";
 import "../../css/PlainTextField.css";
 import InputLabel from "@mui/material/InputLabel";
@@ -121,14 +120,6 @@ const CreateAquarium = () => {
                     variant="filled"
                     fullWidth
                     className="textfield"
-                    // sx={{
-                    //     input: {
-                    //         color: "black",
-                    //         backgroundColor: "#F2DDA6",
-                    //         fontFamily: "Rubik",
-                    //     },
-                    // }}
-                    // InputLabelProps={{ style: { color: "red" } }}
                     type="text"
                     label="Name"
                     name="name"
@@ -354,19 +345,10 @@ const CreateAquarium = () => {
                             <ul key={item.productId}>
                                 <li>
                                     <Button
+                                        variant="list"
                                         onClick={(e) =>
                                             deleteProductItem(e, item)
-                                        }
-                                        sx={{
-                                            textTransform: "none",
-                                            backgroundColor: "#EAB06E",
-                                            color: "black",
-
-                                            ":hover": {
-                                                bgcolor: "#F2DDA6",
-                                                color: "black",
-                                            },
-                                        }}>
+                                        }>
                                         Remove
                                     </Button>
                                     {/* {item.id} */}
@@ -379,24 +361,7 @@ const CreateAquarium = () => {
                 </div>
                 <Button
                     onClick={(e) => newAquarium(e)}
-                    sx={{
-                        textTransform: "none",
-                        backgroundColor: "#EAB06E",
-                        color: "black",
-
-                        ":hover": {
-                            bgcolor: "#F2DDA6",
-                            color: "black",
-                        },
-                    }}
-                    style={{
-                        maxWidth: "400px",
-                        maxHeight: "100px",
-                        minWidth: "400px",
-                        minHeight: "10px",
-                        lineHeight: "50px",
-                        fontSize: "30px",
-                    }}>
+                    variant="action">
                     Finish Creating Aquarium
                 </Button>
             </Container>
