@@ -47,7 +47,7 @@ router.post("/logout", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-    console.log("Update user: ", req.params.id, req.body);
+    // console.log("Update user: ", req.params.id, req.body);
     if (req.isAuthenticated) {
         const sql = `UPDATE "user" 
     SET favorite_plant = $1, 
