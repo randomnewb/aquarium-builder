@@ -45,7 +45,7 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
     if (req.isAuthenticated()) {
         // Create aquarium entry
-        console.log("req.body is", req.body);
+        // console.log("req.body is", req.body);
 
         const sql = `
         INSERT INTO "aquarium" ("user_id", "name", "length", "width", "height", "note", "image_url")
@@ -63,8 +63,8 @@ router.post("/", (req, res) => {
             req.body.image_url,
         ])
             .then((result) => {
-                console.log("new aquarium id", result.rows[0].id, req.body); //ID IS HERE!
-                console.log(req.body.product);
+                // console.log("new aquarium id", result.rows[0].id, req.body); //ID IS HERE!
+                // console.log(req.body.product);
 
                 const newAquariumId = result.rows[0].id;
                 // Add products into table
@@ -168,7 +168,7 @@ router.put("/:id", (req, res) => {
                     pool.query(delSql, [req.body.deleteProducts[i]]);
                 }
 
-                console.log("new aquarium id is", result.rows[0].id, req.body); //ID IS HERE!
+                // console.log("new aquarium id is", result.rows[0].id, req.body); //ID IS HERE!
                 // console.log(req.body.product);
 
                 const newAquariumId = result.rows[0].id;
