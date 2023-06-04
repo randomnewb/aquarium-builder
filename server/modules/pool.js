@@ -29,6 +29,7 @@ if (process.env.DATABASE_URL) {
 } else if (process.env.HEROKU_POSTGRESQL_GRAY_URL) {
   const params = url.parse(process.env.HEROKU_POSTGRESQL_GRAY_URL);
   const auth = params.auth.split(":");
+  const host = params.host.split("@");
 
   config = {
     user: auth[0],
